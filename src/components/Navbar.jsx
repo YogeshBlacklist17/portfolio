@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion' // eslint-disable-line no-unused-vars
+import { useTranslation } from 'react-i18next'
 import './Navbar.css'
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation()
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem('darkMode')
     return saved ? JSON.parse(saved) : false
@@ -10,6 +12,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [currentLang, setCurrentLang] = useState(i18n.language)
 
   const sections = useMemo(
     () => ['home', 'about', 'education', 'skills', 'projects', 'contact'],
@@ -69,6 +72,13 @@ const Navbar = () => {
       el.scrollIntoView({ behavior: 'smooth' })
       setIsMobileMenuOpen(false)
     }
+  }
+
+  const toggleLanguage = () => {
+    const newLang = currentLang === 'en' ? 'de' : 'en'
+    i18n.changeLanguage(newLang)
+    setCurrentLang(newLang)
+    localStorage.setItem('language', newLang)
   }
 
   const navVariants = {
@@ -135,7 +145,7 @@ const Navbar = () => {
                     />
                   )}
                   <span>
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    {t(`nav.${section}`)}
                   </span>
                 </motion.button>
               )
@@ -144,6 +154,41 @@ const Navbar = () => {
 
           {/* Right controls */}
           <div className="right-controls">
+            <motion.a
+              variants={linkVariants}
+              whileHover="hover"
+              whileTap="tap"
+              href="https://drive.google.com/file/d/15aT3Yajtb4vrD3I5c55jSJkq4FdrXun2/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="resume-button"
+            >
+              {t('nav.resume')}
+            </motion.a>
+            <motion.button
+              variants={linkVariants}
+              whileHover="hover"
+              whileTap="tap"
+              onClick={toggleLanguage}
+              className="theme-toggle"
+              aria-label="Toggle language"
+            >
+              <AnimatePresence mode="wait">
+                <motion.svg
+                  key="world"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style={{ color: darkMode ? '#a855f7' : '#3b82f6' }}
+                >
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+                  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" strokeWidth="2" />
+                </motion.svg>
+              </AnimatePresence>
+            </motion.button>
             <motion.button
               variants={linkVariants}
               whileHover="hover"
@@ -259,10 +304,22 @@ const Navbar = () => {
                     onClick={() => scrollToSection(section)}
                     className={`mobile-nav-link ${isActive ? 'active' : ''}`}
                   >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    {t(`nav.${section}`)}
                   </motion.button>
                 )
               })}
+              <motion.a
+                variants={itemVariants}
+                custom={sections.length}
+                initial="closed"
+                animate="open"
+                href="https://drive.google.com/file/d/15aT3Yajtb4vrD3I5c55jSJkq4FdrXun2/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-nav-link resume-link"
+              >
+                {t('nav.resume')}
+              </motion.a>
             </div>
           </motion.div>
         )}

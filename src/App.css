@@ -17,6 +17,84 @@
   }
 }
 
+/* Scroll Down Button (shows when not on contact section) */
+.scroll-to-contact.scroll-down {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #22c55e, #38bdf8, #22c55e);
+  background-size: 200% 100%;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+  transition: all 0.2s;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-contact.scroll-down:hover {
+  background-position: 100% 0;
+  box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.5);
+}
+
+.dark .scroll-to-contact.scroll-down {
+  background: linear-gradient(to right, #9333ea, #ec4899, #9333ea);
+  background-size: 200% 100%;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.3);
+}
+
+.dark .scroll-to-contact.scroll-down:hover {
+  background-position: 100% 0;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.5);
+}
+
+/* Scroll Up Button (shows when not on home section) */
+.scroll-to-contact.scroll-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #22c55e, #38bdf8, #22c55e);
+  background-size: 200% 100%;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+  transition: all 0.2s;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-contact.scroll-top:hover {
+  background-position: 100% 0;
+  box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.5);
+}
+
+.dark .scroll-to-contact.scroll-top {
+  background: linear-gradient(to right, #9333ea, #ec4899, #9333ea);
+  background-size: 200% 100%;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.3);
+}
+
+.dark .scroll-to-contact.scroll-top:hover {
+  background-position: 100% 0;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.5);
+}
+
 .hero {
   position: relative;
 

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 // Generate particle positions once at module level
 const particlePositions = [...Array(8)].map(() => ({
@@ -9,40 +10,42 @@ const particlePositions = [...Array(8)].map(() => ({
   delay: Math.random() * 2,
 }))
 
-const educationData = [
+const getEducationData = (t) => [
   {
     id: 'school',
-    title: 'School',
-    name: 'Your School Name',
-    duration: 'Year - Year',
-    description: 'Basic foundation in science and mathematics.',
+    title: t('education.school.title'),
+    name: t('education.school.name'),
+    duration: t('education.school.duration'),
+    description: t('education.school.description'),
     skills: ['Mathematics', 'Science', 'Physics', 'Chemistry'],
   },
   {
     id: 'bachelor',
-    title: 'Bachelor',
-    name: 'EEE Engineering',
-    duration: '2018 - 2022',
-    description: 'Electrical & Electronics Engineering with focus on core engineering and programming.',
+    title: t('education.bachelor.title'),
+    name: t('education.bachelor.name'),
+    duration: t('education.bachelor.duration'),
+    description: t('education.bachelor.description'),
     skills: ['Circuit Design', 'Programming', 'Electronics', 'Power Systems'],
   },
   {
     id: 'master',
-    title: 'Master',
-    name: 'Future Studies',
-    duration: 'Planned',
-    description: 'Planning to pursue higher studies in Computer Science / Germany.',
+    title: t('education.master.title'),
+    name: t('education.master.name'),
+    duration: t('education.master.duration'),
+    description: t('education.master.description'),
     skills: ['Computer Science', 'Research', 'Advanced Topics'],
   },
 ]
 
 const Education = () => {
+  const { t } = useTranslation()
   const [hoveredNode, setHoveredNode] = useState(null)
+  const educationData = getEducationData(t)
 
   return (
     <section
       id="education"
-      className="min-h-screen relative overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-purple-900/20 dark:to-indigo-900/20 transition-colors duration-300 pt-20"
+      className="h-screen snap-start relative overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-purple-900/20 dark:to-indigo-900/20 transition-colors duration-300 pt-20"
     >
       {/* Background Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -79,7 +82,7 @@ const Education = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-6xl font-bold text-center text-gray-900 dark:text-white mb-20"
         >
-          My Education Journey
+          {t('education.title')}
         </motion.h2>
 
         {/* Cartoon Character */}
