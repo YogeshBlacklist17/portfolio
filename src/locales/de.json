@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "education": "Bildung",
+    "skills": "Fähigkeiten",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "resume": "Lebenslauf"
+  },
+  "home": {
+    "welcome": "Willkommen in meinem Portfolio",
+    "title": "Full Stack Entwickler"
+  },
+  "about": {
+    "title": "Über mich",
+    "description": "Ein leidenschaftlicher Entwickler mit Expertise im Bau moderner Webanwendungen. Ich liebe es, saubere, effiziente und benutzerfreundliche Lösungen zu erstellen."
+  },
+  "education": {
+    "title": "Mein Bildungsweg",
+    "school": {
+      "title": "Schule",
+      "name": "Ihr Schulname",
+      "duration": "Jahr - Jahr",
+      "description": "Grundlagen in Naturwissenschaften und Mathematik."
+    },
+    "bachelor": {
+      "title": "Bachelor",
+      "name": "EEE Ingenieurwesen",
+      "duration": "2018 - 2022",
+      "description": "Elektro- und Informationstechnik mit Fokus auf Kerningenieurwesen und Programmierung."
+    },
+    "master": {
+      "title": "Master",
+      "name": "Zukünftige Studien",
+      "duration": "Geplant",
+      "description": "Planung, weiterführende Studien in Informatik / Deutschland zu absolvieren."
+    }
+  },
+  "skills": {
+    "title": "Fähigkeiten",
+    "description": "Ihre Fähigkeiten und Technologien kommen hierher"
+  },
+  "projects": {
+    "title": "Projekte",
+    "description": "Ihre Projektpräsentation kommt hierher"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Kontaktieren Sie mich",
+    "connectHub": "Verbindungszentrum",
+    "availableForOpportunities": "Verfügbar für Möglichkeiten",
+    "revealPhone": "👉 Telefonnummer anzeigen",
+    "contactForm": "Kontaktformular",
+    "name": "Name *",
+    "email": "E-Mail *",
+    "subject": "Betreff",
+    "message": "Nachricht *",
+    "namePlaceholder": "Ihr Name",
+    "emailPlaceholder": "ihre@email.com",
+    "subjectPlaceholder": "Worum geht es?",
+    "messagePlaceholder": "Ihre Nachricht...",
+    "generateProfessionalMessage": "✨ Professionelle Nachricht generieren",
+    "sendMessage": "Nachricht senden 🚀",
+    "sending": "Wird gesendet...",
+    "messageSent": "Nachricht erfolgreich gesendet",
+    "sendError": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+    "nameRequired": "Name ist erforderlich",
+    "emailRequired": "E-Mail ist erforderlich",
+    "invalidEmail": "Ungültiges E-Mail-Format",
+    "messageRequired": "Nachricht ist erforderlich",
+    "noSubject": "Kein Betreff",
+    "recipientName": "Yogesh",
+    "emailSource": "Portfolio Kontaktseite",
+    "professionalMessageTemplate": "Hallo Yogesh,\n\nIch habe Ihr Portfolio gesehen und war von Ihrer Arbeit beeindruckt. Ich möchte eine potenzielle Möglichkeit mit Ihnen besprechen.\n\nIch freue mich auf die Verbindung!"
+  }
+}

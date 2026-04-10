@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "home": {
+    "welcome": "Welcome to My Portfolio",
+    "title": "Full Stack Developer"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "A passionate developer with expertise in building modern web applications. I love creating clean, efficient, and user-friendly solutions."
+  },
+  "education": {
+    "title": "My Education Journey",
+    "school": {
+      "title": "School",
+      "name": "Your School Name",
+      "duration": "Year - Year",
+      "description": "Basic foundation in science and mathematics."
+    },
+    "bachelor": {
+      "title": "Bachelor",
+      "name": "EEE Engineering",
+      "duration": "2018 - 2022",
+      "description": "Electrical & Electronics Engineering with focus on core engineering and programming."
+    },
+    "master": {
+      "title": "Master",
+      "name": "Future Studies",
+      "duration": "Planned",
+      "description": "Planning to pursue higher studies in Computer Science / Germany."
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "Your skills and technologies will go here"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Your project showcase will go here"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Get in touch with me",
+    "connectHub": "Connect Hub",
+    "availableForOpportunities": "Available for Opportunities",
+    "revealPhone": "Reveal Phone Number",
+    "contactForm": "Contact Form",
+    "name": "Name *",
+    "email": "Email *",
+    "subject": "Subject",
+    "message": "Message *",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "subjectPlaceholder": "What's this about?",
+    "messagePlaceholder": "Your message...",
+    "generateProfessionalMessage": "Generate Professional Message",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    "messageSent": "Message sent successfully",
+    "sendError": "Failed to send message. Please try again.",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "invalidEmail": "Invalid email format",
+    "messageRequired": "Message is required",
+    "noSubject": "No Subject",
+    "recipientName": "Yogesh",
+    "emailSource": "Portfolio Contact Page",
+    "professionalMessageTemplate": "Hi Yogesh,\n\nI came across your portfolio and was impressed by your work. I would like to discuss a potential opportunity with you.\n\nLooking forward to connecting!"
+  }
+}
