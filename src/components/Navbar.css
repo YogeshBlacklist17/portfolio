@@ -1,0 +1,269 @@
+/* Navbar Container */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 50;
+  transition: all 0.5s;
+}
+
+.navbar-container.scrolled {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container.dark-mode.scrolled {
+  background-color: rgba(17, 24, 39, 0.8);
+}
+
+/* Navbar Content Wrapper */
+.navbar-content {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+}
+
+/* Logo Button */
+.logo-button {
+  position: relative;
+  z-index: 10;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #9333ea, #ec4899, #9333ea);
+  background-size: 200% 100%;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.3);
+}
+
+.logo-button:hover {
+  background-position: 100% 0;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.5);
+}
+
+/* Desktop Menu */
+.desktop-menu {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .desktop-menu {
+    display: flex;
+  }
+}
+
+/* Desktop Nav Links */
+.nav-link {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: #4b5563;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  background-color: rgba(243, 244, 246, 0.5);
+  color: #111827;
+}
+
+.nav-link.active {
+  background-color: rgba(168, 85, 247, 0.2);
+  color: #9333ea;
+}
+
+.nav-link.active .active-indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(to right, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+}
+
+.nav-link span {
+  position: relative;
+  z-index: 10;
+}
+
+/* Dark mode styles for nav links */
+.dark .nav-link {
+  color: #9ca3af;
+}
+
+.dark .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+}
+
+.dark .nav-link.active {
+  color: #a855f7;
+}
+
+/* Right Controls */
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Dark Mode Toggle */
+.theme-toggle {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background-color: #f3f4f6;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 1.5rem;
+}
+
+.theme-toggle:hover {
+  background-color: #e5e7eb;
+}
+
+.dark .theme-toggle {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* Reduce margin for portrait orientation */
+@media (orientation: portrait) {
+  .theme-toggle {
+    margin-right: 0.5rem;
+  }
+}
+
+/* Hamburger Menu Button */
+.hamburger-button {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background-color: #f3f4f6;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 1.5rem;
+}
+
+.hamburger-button:hover {
+  background-color: #e5e7eb;
+}
+
+.dark .hamburger-button {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .hamburger-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-button svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: #4b5563;
+}
+
+.dark .hamburger-button svg {
+  color: #9ca3af;
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 768px) {
+  .hamburger-button {
+    display: none !important;
+  }
+}
+
+/* Mobile Dropdown */
+.mobile-dropdown {
+  display: block;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .mobile-dropdown {
+  background-color: rgba(17, 24, 39, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hide mobile dropdown on desktop */
+@media (min-width: 768px) {
+  .mobile-dropdown {
+    display: none !important;
+  }
+}
+
+.mobile-menu-content {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Mobile Nav Links */
+.mobile-nav-link {
+  width: 100%;
+  text-align: left;
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: #374151;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mobile-nav-link:hover {
+  background-color: rgba(243, 244, 246, 1);
+}
+
+.mobile-nav-link.active {
+  background: linear-gradient(to right, #9333ea, #ec4899);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.3);
+}
+
+.dark .mobile-nav-link {
+  color: #d1d5db;
+}
+
+.dark .mobile-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
