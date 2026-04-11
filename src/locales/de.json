@@ -14,7 +14,15 @@
   },
   "about": {
     "title": "Über mich",
-    "description": "Ein leidenschaftlicher Entwickler mit Expertise im Bau moderner Webanwendungen. Ich liebe es, saubere, effiziente und benutzerfreundliche Lösungen zu erstellen."
+    "role": "Full Stack Entwickler",
+    "description": "Ein leidenschaftlicher Entwickler mit Expertise im Bau moderner Webanwendungen. Ich liebe es, saubere, effiziente und benutzerfreundliche Lösungen zu erstellen. Mit einem starken Fundament in Frontend- und Backend-Technologien erwecke ich Ideen durch eleganten Code und durchdachtes Design zum Leben.",
+    "cta": "Auf LinkedIn verbinden",
+    "stats": {
+      "experience": "Erfahrung",
+      "projects": "Projekte",
+      "clients": "Kunden",
+      "collaborations": "Zusammenarbeiten"
+    }
   },
   "education": {
     "title": "Mein Bildungsweg",

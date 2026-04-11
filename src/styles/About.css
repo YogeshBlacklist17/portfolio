@@ -1,0 +1,414 @@
+/* ═══════════════════════════════════════════
+   About Section — Premium Portfolio Styles
+   ═══════════════════════════════════════════ */
+
+/* ── Section Layout ── */
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 35px;
+  background: linear-gradient(135deg, #f8faf8 0%, #f0f4f0 100%);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* ── Background Parallax Glow Blobs ── */
+.about-glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-glow-blob-1 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #7c3aed 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+}
+
+.about-glow-blob-2 {
+  width: 310px;
+  height: 310px;
+  background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+  bottom: -80px;
+  left: -80px;
+}
+
+.about-glow-blob-3 {
+  width: 265px;
+  height: 265px;
+  background: radial-gradient(circle, #a855f7 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dark .about-glow-blob {
+  opacity: 0.08;
+}
+
+.dark .about-section {
+  background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
+}
+
+.about-section-inner {
+  max-width: 1050px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2.6rem;
+  align-items: start;
+}
+
+/* ── Grid Layout (Content Left, Portrait Right) ── */
+.about-grid-layout {
+  position: relative;
+  width: 100%;
+  max-width: 1050px;
+  display: grid;
+  grid-template-columns: 2.6fr 1.3fr;
+  gap: 2.6rem;
+  margin: 20vh auto 0;
+  padding: 0 35px;
+  align-items: center;
+}
+
+/* CONTENT CARD */
+.about-content-card {
+  padding: 2.2rem;
+}
+
+/* PORTRAIT IMAGE WRAPPER */
+.about-portrait-wrapper {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.2);
+  transition: all 0.4s ease;
+}
+
+.about-portrait-wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 50px rgba(168, 85, 247, 0.35);
+}
+
+/* PORTRAIT IMAGE STYLE */
+.about-portrait-img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+  will-change: filter, transform;
+  aspect-ratio: 3/4;
+}
+
+.about-portrait-wrapper:hover .about-portrait-img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* ── Glass Card ── */
+.about-glass-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .about-glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-glass-card:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+.dark .about-glass-card:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.15), 0 0 25px rgba(168, 85, 247, 0.3);
+}
+
+.about-glass-card-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+  transition: background 0.15s ease;
+}
+
+.about-glass-card-edge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+  transition: box-shadow 0.3s ease;
+}
+
+.about-glass-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Left Side ── */
+.about-left-card {
+  padding: 2.2rem;
+}
+
+/* ── About Text ── */
+.about-text {
+  margin-bottom: 2rem;
+}
+
+.about-heading {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.dark .about-heading {
+  color: #ffffff;
+}
+
+.about-role {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.25rem;
+}
+
+.about-description {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #4b5563;
+  margin-bottom: 1.75rem;
+  max-width: 700px;
+}
+
+.dark .about-description {
+  color: #9ca3af;
+}
+
+/* ── CTA Button ── */
+.about-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.about-cta-button:hover {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+}
+
+.about-cta-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ── Stats Row ── */
+.about-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  margin-top: 1.3rem;
+}
+
+.about-stat-card {
+  padding: 1.1rem 0.65rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.15);
+}
+
+/* Stats Pulse Glow Animation */
+@keyframes statPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(168, 85, 247, 0.3);
+  }
+}
+
+.about-stat-card.pulse-glow {
+  animation: statPulse 3s ease-in-out infinite;
+}
+
+.about-stat-number {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.about-stat-label {
+  display: block;
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-top: 0.3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dark .about-stat-label {
+  color: #9ca3af;
+}
+
+
+/* ═══════════════════════════════════════════
+   Responsive — Tablet
+   ═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .about-section-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-heading {
+    font-size: 2.2rem;
+  }
+
+  .about-left-card {
+    padding: 1.75rem;
+  }
+
+  /* Grid Layout Responsive */
+  .about-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 1.75rem 1.3rem;
+  }
+
+  .about-content-card {
+    padding: 1.75rem;
+  }
+
+  .about-portrait-wrapper {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Responsive — Mobile
+   ═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .about-section {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .about-heading {
+    font-size: 1.75rem;
+  }
+
+  .about-role {
+    font-size: 0.9rem;
+  }
+
+  .about-description {
+    font-size: 0.83rem;
+  }
+
+  .about-left-card {
+    padding: 1.3rem;
+  }
+
+  .about-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-stat-number {
+    font-size: 1.3rem;
+  }
+
+  .about-cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Grid Layout Mobile Responsive */
+  .about-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
+    padding: 1.3rem 0.9rem;
+  }
+
+  .about-content-card {
+    padding: 1.3rem;
+  }
+
+  .about-portrait-wrapper {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 3.5rem 0.75rem 1.5rem;
+  }
+
+  .about-heading {
+    font-size: 1.55rem;
+  }
+
+  .about-left-card {
+    padding: 1.1rem;
+  }
+
+  .about-stats-row {
+    gap: 0.65rem;
+  }
+
+  .about-stat-card {
+    padding: 0.9rem 0.45rem;
+  }
+
+  .about-stat-number {
+    font-size: 1.2rem;
+  }
+}

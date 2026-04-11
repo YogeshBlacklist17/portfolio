@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import AboutSection from './components/about/AboutSection'
 import Education from './components/Education'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
@@ -24,15 +25,8 @@ function App() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="h-screen snap-start flex items-center justify-center px-4 pt-16 pb-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
-              {t('about.title')}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              {t('about.description')}
-            </p>
-          </div>
+        <section id="about" className="snap-start">
+          <AboutSection />
         </section>
 
         {/* Education Section */}

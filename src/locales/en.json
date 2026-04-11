@@ -14,7 +14,15 @@
   },
   "about": {
     "title": "About Me",
-    "description": "A passionate developer with expertise in building modern web applications. I love creating clean, efficient, and user-friendly solutions."
+    "role": "Full Stack Developer",
+    "description": "I’m a passionate developer dedicated to building modern, high-performance web applications that deliver real value. I specialize in creating clean, scalable, and user-focused solutions with a strong emphasis on performance and usability. With solid expertise across both front-end and back-end technologies, I turn ideas into seamless digital experiences. I focus on writing efficient, maintainable code while ensuring intuitive and engaging design, and I continuously refine my skills to stay ahead in the ever-evolving tech landscape.",
+    "cta": "Connect on LinkedIn",
+    "stats": {
+      "experience": "Experience",
+      "projects": "Projects",
+      "clients": "Clients",
+      "collaborations": "Collaborations"
+    }
   },
   "education": {
     "title": "My Education Journey",

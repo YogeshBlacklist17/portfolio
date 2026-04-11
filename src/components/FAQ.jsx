@@ -43,12 +43,35 @@ const GlowCard = ({ children, className, glowColor = '34, 197, 94', activeGlowCo
 const FAQ = () => {
   const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const [isDark, setIsDark] = useState(
     typeof document !== 'undefined' &&
     (document.documentElement.classList.contains('dark') ||
      window.matchMedia('(prefers-color-scheme: dark)').matches)
   );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const section = document.querySelector('.faq-section');
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
 
   useEffect(() => {
     const handleThemeChange = () => {
@@ -86,12 +109,12 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="faq-section">
+    <section className={`faq-section ${isVisible ? 'faq-visible' : 'faq-hidden'}`}>
       <div className="faq-container">
         <div className="faq-grid">
 
           {/* Left column */}
-          <div className="faq-left-wrapper">
+          <div className={`faq-left-wrapper ${isVisible ? 'fade-in-left' : 'fade-out-left'}`}>
             <div className="faq-left">
               <h2 className="faq-title">{t('faq.title')}</h2>
               <p className="faq-desc">{t('faq.description')}</p>
@@ -118,7 +141,8 @@ const FAQ = () => {
                 <GlowCard
                   key={index}
                   glowColor={glowColor}
-                  className={`faq-item-card ${isActive ? 'faq-item-active' : ''}`}
+                  className={`faq-item-card ${isActive ? 'faq-item-active' : ''} ${isVisible ? 'fade-in-up' : 'fade-out-down'}`}
+                  style={{ animationDelay: `${index * 120}ms` }}
                 >
                   <div
                     className="faq-item-inner"

@@ -94,10 +94,13 @@ const Contact = () => {
   }, [])
 
   // Detect dark mode and react to theme changes
-  const [isDark, setIsDark] = useState(
-    typeof document !== 'undefined' &&
-    document.documentElement.classList.contains('dark')
-  )
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof document === 'undefined') return false
+    // Check both class and localStorage for initial theme detection
+    const isDarkClass = document.documentElement.classList.contains('dark')
+    const isDarkStorage = localStorage.getItem('theme') === 'dark'
+    return isDarkClass || isDarkStorage
+  })
 
   useEffect(() => {
     const handleThemeChange = () => {
@@ -199,21 +202,162 @@ const Contact = () => {
   const inputClass = (field) =>
     `form-input ${errors[field] ? 'error' : ''}`
 
+  const canvasRef = useRef(null)
+  const animationRef = useRef(null)
+
+  useEffect(() => {
+    if (shouldReduceMotion) return
+
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
+
+    const particles = []
+    const particleCount = 80
+    const connectionDistance = 150
+    const mouseDistance = 140
+
+    const mouse = { x: null, y: null }
+
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect()
+      mouse.x = e.clientX - rect.left
+      mouse.y = e.clientY - rect.top
+    }
+
+    const handleMouseLeave = () => {
+      mouse.x = null
+      mouse.y = null
+    }
+
+    canvas.addEventListener('mousemove', handleMouseMove)
+    canvas.addEventListener('mouseleave', handleMouseLeave)
+
+    const createParticle = () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 1.5,
+      vy: (Math.random() - 0.5) * 1.5,
+      size: Math.random() * 4 + 3,
+      opacity: Math.random() * 0.5 + 0.3,
+      update() {
+        this.x += this.vx
+        this.y += this.vy
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1
+      },
+      draw() {
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
+        ctx.fillStyle = isDark 
+          ? `rgba(168, 85, 247, ${this.opacity})` 
+          : `rgba(34, 197, 94, ${this.opacity})`
+        ctx.fill()
+      }
+    })
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(createParticle())
+    }
+
+    const drawConnections = () => {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x
+          const dy = particles[i].y - particles[j].y
+          const distance = Math.sqrt(dx * dx + dy * dy)
+
+          if (distance < connectionDistance) {
+            const opacity = (1 - distance / connectionDistance) * 0.5
+            ctx.beginPath()
+            ctx.strokeStyle = isDark 
+              ? `rgba(168, 85, 247, ${opacity})` 
+              : `rgba(34, 197, 94, ${opacity})`
+            ctx.lineWidth = 1
+            ctx.moveTo(particles[i].x, particles[i].y)
+            ctx.lineTo(particles[j].x, particles[j].y)
+            ctx.stroke()
+          }
+        }
+
+        // Connect to mouse
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = particles[i].x - mouse.x
+          const dy = particles[i].y - mouse.y
+          const distance = Math.sqrt(dx * dx + dy * dy)
+
+          if (distance < mouseDistance) {
+            const opacity = (1 - distance / mouseDistance) * 0.8
+            ctx.beginPath()
+            ctx.strokeStyle = isDark 
+              ? `rgba(168, 85, 247, ${opacity})` 
+              : `rgba(34, 197, 94, ${opacity})`
+            ctx.lineWidth = 1.5
+            ctx.moveTo(particles[i].x, particles[i].y)
+            ctx.lineTo(mouse.x, mouse.y)
+            ctx.stroke()
+          }
+        }
+      }
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      particles.forEach(particle => {
+        particle.update()
+        particle.draw()
+      })
+
+      drawConnections()
+
+      animationRef.current = requestAnimationFrame(animate)
+    }
+
+    animate()
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas)
+      canvas.removeEventListener('mousemove', handleMouseMove)
+      canvas.removeEventListener('mouseleave', handleMouseLeave)
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+    }
+  }, [isDark, shouldReduceMotion])
+
   return (
     <section ref={sectionRef} className="w-full min-h-screen py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0a0a0a] dark:to-[#111111] transition-colors duration-300 relative overflow-hidden">
-
+      {/* Custom canvas particle background - adapts to dark/light mode */}
+      {!shouldReduceMotion && (
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 pointer-events-none z-0"
+          style={{ width: '100%', height: '100%' }}
+        />
+      )}
+      
       {/* Static ambient glow — no animation, just a colour tint */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/8 dark:bg-purple-500/8 rounded-full blur-3xl" />
       </div>
 
-      <motion.div className="contact-wrapper" {...entrance(0)}>
+      <motion.div className="contact-wrapper relative z-10" {...entrance(0)}>
 
         {/* ── LEFT PANEL ── */}
         <motion.div {...entrance(0.08)}>
           <GlowCard
             glowColor={glowColor}
-            className="contact-left-panel h-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-md"
+            className="contact-left-panel h-full bg-white/70 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-md"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
               {t('contact.connectHub')}
@@ -275,7 +419,7 @@ const Contact = () => {
         <motion.div {...entrance(0.16)}>
           <GlowCard
             glowColor={glowColor}
-            className="contact-right-panel h-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-md"
+            className="contact-right-panel h-full bg-white/70 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-md"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
               {t('contact.contactForm')}
@@ -390,23 +534,6 @@ const Contact = () => {
         </motion.div>
 
       </motion.div>
-
-      {/* Particles — CSS-only, zero JS */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-        {[
-          { top: '20%', left: '10%',  animationDelay: '0s'   },
-          { top: '60%', left: '20%',  animationDelay: '-5s'  },
-          { top: '40%', right: '15%', animationDelay: '-10s' },
-          { bottom: '30%', right: '25%', animationDelay: '-15s' },
-          { top: '80%', left: '50%',  animationDelay: '-8s'  },
-        ].map((style, i) => (
-          <div
-            key={i}
-            className="particle bg-green-500/30 dark:bg-purple-500/30"
-            style={{ ...style, animationDelay: style.animationDelay }}
-          />
-        ))}
-      </div>
 
     </section>
   )
