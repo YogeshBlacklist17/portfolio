@@ -1,34 +1,75 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 
+const containerVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 40,
+    filter: 'blur(6px)' 
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { 
+      duration: 0.6, 
+      ease: [0.25, 0.1, 0.25, 1] 
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: -30,
+    filter: 'blur(6px)',
+    transition: { 
+      duration: 0.4, 
+      ease: [0.25, 0.1, 0.25, 1] 
+    }
+  }
+}
+
 const AboutText = () => {
   const { t } = useTranslation()
 
   return (
     <motion.div
       className="about-text"
-      initial={{ opacity: 0, x: -60 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
+      variants={containerVariants}
     >
-      <h2 className="about-heading">
+      <motion.h2 
+        className="about-heading"
+        variants={itemVariants}
+      >
         {t('about.title')}
-      </h2>
+      </motion.h2>
 
-      <p className="about-role">
+      <motion.p 
+        className="about-role"
+        variants={itemVariants}
+      >
         {t('about.role')}
-      </p>
+      </motion.p>
 
-      <p className="about-description">
+      <motion.p 
+        className="about-description"
+        variants={itemVariants}
+      >
         {t('about.description')}
-      </p>
+      </motion.p>
 
       <motion.a
         href="https://www.linkedin.com/in/yogesh-m-314ab8264/"
         target="_blank"
         rel="noopener noreferrer"
         className="about-cta-button"
+        variants={itemVariants}
         whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(168, 85, 247, 0.4)' }}
         whileTap={{ scale: 0.97 }}
         transition={{ type: 'spring', stiffness: 400, damping: 20 }}

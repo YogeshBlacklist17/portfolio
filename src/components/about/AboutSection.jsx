@@ -1,22 +1,97 @@
-import { motion } from 'framer-motion'
+import { motion, useAnimation, useInView } from 'framer-motion'
+import { useRef, useEffect } from 'react'
 import AboutText from './AboutText'
 import Stats from './Stats'
 import GlassCard from './GlassCard'
 import portraitImg from '../../assets/about/img1.jpeg'
 import '../../styles/About.css'
 
-const itemVariants = {
-  hidden: { opacity: 0, x: 60 },
+const smoothVariants = {
+  hidden: {
+    opacity: 0,
+    y: 80,
+    scale: 0.98
+  },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' }
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 70,
+      damping: 18,
+      staggerChildren: 0.15
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: -60,
+    scale: 0.98,
+    transition: {
+      duration: 0.4,
+      ease: "easeInOut"
+    }
   }
-}
+};
+
+const portraitVariants = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+    scale: 0.92,
+    rotate: -3
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      stiffness: 60,
+      damping: 20,
+      mass: 0.8,
+      duration: 0.8
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: -80,
+    scale: 0.92,
+    rotate: 3,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut"
+    }
+  }
+};
 
 const AboutSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    margin: "-20%",
+    amount: 0.3
+  });
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    } else {
+      controls.start("exit");
+    }
+  }, [isInView, controls]);
+
   return (
-    <section id="about" className="about-section">
+    <motion.section 
+      ref={ref}
+      id="about" 
+      className="about-section"
+      variants={smoothVariants}
+      initial="hidden"
+      animate={controls}
+    >
       {/* Background Parallax Glow Blobs */}
       <motion.div
         className="about-glow-blob about-glow-blob-1"
@@ -25,9 +100,9 @@ const AboutSection = () => {
           y: [0, -30, 0],
         }}
         transition={{
-          duration: 8,
+          duration: 12,
           repeat: Infinity,
-          ease: 'easeInOut',
+          ease: 'linear',
         }}
       />
       <motion.div
@@ -37,21 +112,9 @@ const AboutSection = () => {
           y: [0, 25, 0],
         }}
         transition={{
-          duration: 10,
+          duration: 12,
           repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-      <motion.div
-        className="about-glow-blob about-glow-blob-3"
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.06, 0.08, 0.06],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: 'easeInOut',
+          ease: 'linear',
         }}
       />
 
@@ -65,10 +128,7 @@ const AboutSection = () => {
         {/* Right Portrait Image */}
         <motion.div
           className="about-portrait-wrapper"
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          variants={portraitVariants}
         >
           <img
             src={portraitImg}
@@ -78,7 +138,7 @@ const AboutSection = () => {
           />
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
