@@ -1,0 +1,166 @@
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import '../styles/FAQ.css';
+
+const GlowCard = ({ children, className, glowColor = '34, 197, 94', activeGlowColor }) => {
+  const cardRef = useRef(null);
+  const glowRef = useRef(null);
+  const rafRef = useRef(null);
+
+  const handleMouseMove = useCallback((e) => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      const rect = cardRef.current?.getBoundingClientRect();
+      if (!rect || !glowRef.current) return;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      glowRef.current.style.background =
+        `radial-gradient(500px circle at ${x}px ${y}px, rgba(${glowColor}, 0.13), rgba(${glowColor}, 0.08) 40%, rgba(${glowColor}, 0.04) 55%, rgba(${glowColor}, 0.02) 70%, transparent 85%)`;
+    });
+  }, [glowColor]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    if (glowRef.current) glowRef.current.style.background = 'none';
+  }, []);
+
+  useEffect(() => () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`glow-card ${className}`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div ref={glowRef} className="glow-overlay" />
+      <div className="glow-content">{children}</div>
+    </div>
+  );
+};
+
+const FAQ = () => {
+  const { t } = useTranslation();
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const [isDark, setIsDark] = useState(
+    typeof document !== 'undefined' &&
+    (document.documentElement.classList.contains('dark') ||
+     window.matchMedia('(prefers-color-scheme: dark)').matches)
+  );
+
+  useEffect(() => {
+    const handleThemeChange = () => {
+      setIsDark(
+        document.documentElement.classList.contains('dark') ||
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      );
+    };
+
+    window.addEventListener('theme-change', handleThemeChange);
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleThemeChange);
+
+    const observer = new MutationObserver(handleThemeChange);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => {
+      window.removeEventListener('theme-change', handleThemeChange);
+      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleThemeChange);
+      observer.disconnect();
+    };
+  }, []);
+
+  const glowColor = isDark ? '168, 85, 247' : '34, 197, 94';
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  const faqItems = [
+    { key: 'q1' },
+    { key: 'q2' },
+    { key: 'q3' },
+    { key: 'q4' },
+    { key: 'q5' },
+  ];
+
+  return (
+    <section className="faq-section">
+      <div className="faq-container">
+        <div className="faq-grid">
+
+          {/* Left column */}
+          <div className="faq-left-wrapper">
+            <div className="faq-left">
+              <h2 className="faq-title">{t('faq.title')}</h2>
+              <p className="faq-desc">{t('faq.description')}</p>
+
+              <div className="faq-glass-card">
+                <div className="faq-glass-title">Why this FAQ?</div>
+
+                <div className="faq-glass-features">
+                  <div>  -Instant clarity on common questions</div>
+                  <div>  -Secure & professional communication</div>
+                  <div>  -Built for fast decision making</div>
+                </div>
+              </div>
+
+              <div className="faq-blob-bg" />
+            </div>
+          </div>
+
+          {/* Right column */}
+          <div className="faq-list">
+            {faqItems.map((item, index) => {
+              const isActive = activeIndex === index;
+              return (
+                <GlowCard
+                  key={index}
+                  glowColor={glowColor}
+                  className={`faq-item-card ${isActive ? 'faq-item-active' : ''}`}
+                >
+                  <div
+                    className="faq-item-inner"
+                    onClick={() => toggleFAQ(index)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleFAQ(index);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={isActive}
+                  >
+                    {/* Question row */}
+                    <div className={`faq-question-row ${isActive ? 'faq-question-active' : ''}`}>
+                      <h3 className={`faq-question-text ${isActive ? 'faq-question-text-active' : ''}`}>
+                        {t(`faq.items.${item.key}.question`)}
+                      </h3>
+                      <span className={`faq-chevron ${isActive ? 'faq-chevron-active' : ''}`}>
+                        <ChevronDown size={18} />
+                      </span>
+                    </div>
+
+                    {/* Answer — CSS grid trick for smooth height */}
+                    <div className={`faq-answer-wrap ${isActive ? 'faq-answer-open' : ''}`}>
+                      <div className="faq-answer-inner">
+                        <p className="faq-answer-text">
+                          {t(`faq.items.${item.key}.answer`)}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </GlowCard>
+              );
+            })}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FAQ;

@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Education from './components/Education'
+import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import { useTranslation } from 'react-i18next'
 
@@ -61,10 +62,16 @@ function App() {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="h-screen snap-start">
-          <Contact />
+        {/* FAQ Section */}
+        <section id="faq" className="snap-start">
+          <FAQ />
         </section>
+
+        {/* Contact Section */}
+        {/* Contact Section — min-h-screen so content isn't clipped by snap */}
+<section id="contact" className="min-h-screen snap-start">
+  <Contact />
+</section>
       </div>
     </>
   )

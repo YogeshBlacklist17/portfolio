@@ -73,5 +73,31 @@
     "recipientName": "Yogesh",
     "emailSource": "Portfolio Contact Page",
     "professionalMessageTemplate": "Hi Yogesh,\n\nI came across your portfolio and was impressed by your work. I would like to discuss a potential opportunity with you.\n\nLooking forward to connecting!"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Everything you need to know about my work, experience, and how we can collaborate together.",
+    "items": {
+      "q1": {
+        "question": "Who are you and what do you specialize in?",
+        "answer": "I'm a passionate full-stack developer specializing in building modern web applications with React, Node.js, and cloud technologies. I focus on creating scalable, user-centric solutions that solve real-world problems."
+      },
+      "q2": {
+        "question": "What technologies do you work with?",
+        "answer": "I work with React, Next.js, TypeScript, Node.js, Python, PostgreSQL, MongoDB, AWS, Docker, and Git. I'm always exploring new technologies to stay current with industry best practices."
+      },
+      "q3": {
+        "question": "Are you open to relocation or remote roles?",
+        "answer": "Yes, I'm open to both remote and on-site opportunities. I'm flexible with relocation for the right role and thrive in collaborative, forward-thinking environments."
+      },
+      "q4": {
+        "question": "Can you work in team environments?",
+        "answer": "Absolutely. I have strong experience working in agile teams, participating in code reviews, and collaborating with cross-functional teams. I value clear communication and shared ownership."
+      },
+      "q5": {
+        "question": "How can I contact you quickly?",
+        "answer": "You can reach me via email at my portfolio contact form, LinkedIn, or GitHub. I typically respond within 24-48 hours and am always open to discussing new opportunities."
+      }
+    }
   }
 }

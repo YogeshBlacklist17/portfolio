@@ -15,6 +15,18 @@
     outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
+
+  @media (max-width: 640px) {
+    font-size: 14px;
+    padding: 4px 8px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 13px;
+    padding: 3px 6px;
+    margin-bottom: 16px;
+  }
 }
 
 /* Scroll Down Button (shows when not on contact section) */
@@ -38,6 +50,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .scroll-to-contact.scroll-down {
+    bottom: 4rem;
+    right: 1rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-contact.scroll-down {
+    bottom: 3.5rem;
+    right: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.125rem;
+  }
 }
 
 .scroll-to-contact.scroll-down:hover {
@@ -77,6 +109,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .scroll-to-contact.scroll-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-contact.scroll-top {
+    bottom: 0.75rem;
+    right: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.125rem;
+  }
 }
 
 .scroll-to-contact.scroll-top:hover {
@@ -146,6 +198,16 @@
     padding: 32px 20px 24px;
     gap: 18px;
   }
+
+  @media (max-width: 640px) {
+    padding: 24px 16px 20px;
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 12px 16px;
+    gap: 14px;
+  }
 }
 
 #next-steps {
@@ -159,12 +221,27 @@
     @media (max-width: 1024px) {
       padding: 24px 20px;
     }
+    @media (max-width: 640px) {
+      padding: 20px 16px;
+    }
+    @media (max-width: 480px) {
+      padding: 16px 12px;
+    }
   }
 
   .icon {
     margin-bottom: 16px;
     width: 22px;
     height: 22px;
+    @media (max-width: 640px) {
+      width: 20px;
+      height: 20px;
+    }
+    @media (max-width: 480px) {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 12px;
+    }
   }
 
   @media (max-width: 1024px) {
@@ -229,6 +306,47 @@
       box-sizing: border-box;
     }
   }
+
+  @media (max-width: 640px) {
+    margin-top: 16px;
+    gap: 6px;
+
+    li {
+      flex: 1 1 calc(50% - 6px);
+    }
+
+    a {
+      font-size: 14px;
+      padding: 5px 10px;
+      gap: 6px;
+    }
+
+    .logo,
+    .button-icon {
+      height: 16px;
+      width: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 12px;
+    gap: 4px;
+
+    li {
+      flex: 1 1 100%;
+    }
+
+    a {
+      font-size: 13px;
+      padding: 4px 8px;
+    }
+
+    .logo,
+    .button-icon {
+      height: 14px;
+      width: 14px;
+    }
+  }
 }
 
 #spacer {
@@ -236,6 +354,12 @@
   border-top: 1px solid var(--border);
   @media (max-width: 1024px) {
     height: 48px;
+  }
+  @media (max-width: 640px) {
+    height: 40px;
+  }
+  @media (max-width: 480px) {
+    height: 32px;
   }
 }
 

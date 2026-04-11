@@ -73,5 +73,31 @@
     "recipientName": "Yogesh",
     "emailSource": "Portfolio Kontaktseite",
     "professionalMessageTemplate": "Hallo Yogesh,\n\nIch habe Ihr Portfolio gesehen und war von Ihrer Arbeit beeindruckt. Ich möchte eine potenzielle Möglichkeit mit Ihnen besprechen.\n\nIch freue mich auf die Verbindung!"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Alles, was Sie über meine Arbeit, meine Erfahrung und wie wir zusammenarbeiten können, wissen müssen.",
+    "items": {
+      "q1": {
+        "question": "Wer sind Sie und worauf spezialisieren Sie sich?",
+        "answer": "Ich bin ein leidenschaftlicher Full-Stack-Entwickler, der sich auf den Bau moderner Webanwendungen mit React, Node.js und Cloud-Technologien spezialisiert hat. Ich konzentriere mich auf die Erstellung skalierbarer, benutzerzentrierter Lösungen, die echte Probleme lösen."
+      },
+      "q2": {
+        "question": "Mit welchen Technologien arbeiten Sie?",
+        "answer": "Ich arbeite mit React, Next.js, TypeScript, Node.js, Python, PostgreSQL, MongoDB, AWS, Docker und Git. Ich erkunde ständig neue Technologien, um auf dem Laufenden über die Best Practices der Branche zu bleiben."
+      },
+      "q3": {
+        "question": "Sind Sie offen für Umzüge oder Remote-Stellen?",
+        "answer": "Ja, ich bin sowohl für Remote- als auch für Vor-Ort-Möglichkeiten offen. Ich bin flexibel bei Umzügen für die richtige Stelle und gedeihe in kollaborativen, zukunftsorientierten Umgebungen."
+      },
+      "q4": {
+        "question": "Können Sie in Teamumgebungen arbeiten?",
+        "answer": "Absolut. Ich habe umfangreiche Erfahrung in der Arbeit mit agilen Teams, der Teilnahme an Code-Reviews und der Zusammenarbeit mit funktionsübergreifenden Teams. Ich schätze klare Kommunikation und gemeinsame Verantwortung."
+      },
+      "q5": {
+        "question": "Wie kann ich Sie schnell kontaktieren?",
+        "answer": "Sie können mich per E-Mail über mein Portfolio-Kontaktformular, LinkedIn oder GitHub erreichen. Ich antworte normalerweise innerhalb von 24-48 Stunden und bin immer offen für die Diskussion neuer Möglichkeiten."
+      }
+    }
   }
 }
