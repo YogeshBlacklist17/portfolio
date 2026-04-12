@@ -7,8 +7,16 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        brand: {
+          teal: "#14d2a0",
+          blue: "#5b8fff",
+          dark: "#050508",
+          card: "rgba(15,15,20,0.85)",
+        },
+      },
       fontFamily: {
-        sans: ['system-ui', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ["Inter", "sans-serif"],
       },
     },
   },

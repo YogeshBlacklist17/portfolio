@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 
@@ -40,6 +40,26 @@ const getEducationData = (t) => [
 const Education = () => {
   const { t } = useTranslation()
   const [hoveredNode, setHoveredNode] = useState(null)
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof document === 'undefined') return false;
+    const isDarkClass = document.documentElement.classList.contains('dark');
+    const isDarkStorage = localStorage.getItem('darkMode') === 'true';
+    return isDarkClass || isDarkStorage;
+  });
+
+  useEffect(() => {
+    const handleThemeChange = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    window.addEventListener('theme-change', handleThemeChange);
+    const observer = new MutationObserver(handleThemeChange);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => {
+      window.removeEventListener('theme-change', handleThemeChange);
+      observer.disconnect();
+    };
+  }, []);
+
   const educationData = getEducationData(t)
 
   return (
@@ -283,6 +303,34 @@ const Education = () => {
           />
         )}
       </div>
+
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 8, 0] }}
+        transition={{ delay: 1.8, duration: 0.8, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+        onClick={() => {
+          const faqSection = document.getElementById('faq');
+          if (faqSection) {
+            faqSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[9px] tracking-widest cursor-pointer ${isDark ? 'text-white/20 hover:text-white/40' : 'text-black/60 hover:text-black/80'} transition-colors`}
+      >
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="text-lg"
+        >
+          ↓
+        </motion.div>
+        <div
+          className="w-8 h-px"
+          style={{
+            background: isDark ? "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)" : "linear-gradient(90deg, transparent, rgba(0,0,0,0.4), transparent)",
+          }}
+        />
+        SCROLL
+      </motion.button>
     </section>
   )
 }

@@ -1,72 +1,44 @@
+import { useState } from "react";
 import Navbar from './components/Navbar'
 import AboutSection from './components/about/AboutSection'
 import Education from './components/Education'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
-import { useTranslation } from 'react-i18next'
+import HeroSection from './components/HeroSection'
+import useSmoothScroll from './hooks/useSmoothScroll'
+import Preloader from './components/Preloader'
 
 function App() {
-  const { t } = useTranslation()
+  const [ready, setReady] = useState(false);
+  useSmoothScroll()
+
   return (
     <>
-      <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-[#f6f8f6] dark:bg-gray-900 transition-colors duration-300">
-        <Navbar />
+      <Preloader onComplete={() => setReady(true)} />
 
-        {/* Home Section */}
-        <section id="home" className="h-screen snap-start flex items-center justify-center px-4 pt-16">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-4">
-              {t('home.welcome')}
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
-              {t('home.title')}
-            </p>
-          </div>
+      <main style={{ opacity: ready ? 1 : 0, transition: 'opacity 0.6s ease' }}>
+        <section id="home">
+          <HeroSection />
         </section>
 
-        {/* About Section */}
-        <section id="about" className="snap-start">
+        <Navbar />
+
+        <section id="about">
           <AboutSection />
         </section>
 
-        {/* Education Section */}
-        <Education />
-
-        {/* Skills Section */}
-        <section id="skills" className="h-screen snap-start flex items-center justify-center px-4 pt-16 pb-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
-              {t('skills.title')}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              {t('skills.description')}
-            </p>
-          </div>
+        <section id="education">
+          <Education />
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" className="h-screen snap-start flex items-center justify-center px-4 pt-16 pb-20 bg-gray-50 dark:bg-gray-800/50">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
-              {t('projects.title')}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              {t('projects.description')}
-            </p>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section id="faq" className="snap-start">
+        <section id="faq">
           <FAQ />
         </section>
 
-        {/* Contact Section */}
-        {/* Contact Section — min-h-screen so content isn't clipped by snap */}
-<section id="contact" className="min-h-screen snap-start">
-  <Contact />
-</section>
-      </div>
+        <section id="contact">
+          <Contact />
+        </section>
+      </main>
     </>
   )
 }

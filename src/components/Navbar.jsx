@@ -15,7 +15,7 @@ const Navbar = () => {
   const [currentLang, setCurrentLang] = useState(i18n.language)
 
   const sections = useMemo(
-    () => ['home', 'about', 'education', 'skills', 'projects', 'contact'],
+    () => ['home', 'about', 'education', 'skills', 'projects', 'faq', 'contact'],
     []
   )
 
