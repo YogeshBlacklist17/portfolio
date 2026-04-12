@@ -6,6 +6,7 @@ export default function FloatingCard({
   sub,
   position,
   delay = 0,
+  scrollStyle,
 }) {
   void motion;
   const floatAnim = {
@@ -16,6 +17,7 @@ export default function FloatingCard({
   return (
     <motion.div
       {...floatAnim}
+      style={scrollStyle}
       className={`absolute ${position} bg-[rgba(10,10,15,0.85)] border border-white/8 backdrop-blur-xl rounded-xl px-4 py-3 z-10`}
     >
       <p className="text-[9px] tracking-widest text-white/30 uppercase mb-1">

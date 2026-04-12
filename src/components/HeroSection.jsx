@@ -63,9 +63,42 @@ export default function HeroSection() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const photoScale = useTransform(scrollYProgress, [0, 1], [0.98, 1.0]);
+  const photoScale = useTransform(scrollYProgress, [0, 1], [0.98, 1.15]);
   const photoOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.3]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+
+  // FloatingCard scroll-out animations (expand, right, fade)
+  const card1X = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const card1Scale = useTransform(scrollYProgress, [0, 0.8], [1, 1.4]);
+  const card1Opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  const card2X = useTransform(scrollYProgress, [0, 1], [0, 250]);
+  const card2Scale = useTransform(scrollYProgress, [0, 0.8], [1, 1.5]);
+  const card2Opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  // Name scroll-out animations (up, left, rotation, scale, fade)
+  const nameY = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  const nameX = useTransform(scrollYProgress, [0, 1], [0, -20]);
+  const nameRotate = useTransform(scrollYProgress, [0, 1], [0, -3]);
+  const nameScale = useTransform(scrollYProgress, [0, 0.8], [1, 1.5]);
+  const nameOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  // Roles + subtitle: expand + fade LEFT → RIGHT
+  const roleX = useTransform(scrollYProgress, [0, 1], [0, 320]);
+  const roleScale = useTransform(scrollYProgress, [0, 0.7], [1, 1.8]);
+  const roleOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  // Tags + stats: expand + fade RIGHT → LEFT
+  const tagsX = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  const tagsScale = useTransform(scrollYProgress, [0, 0.8], [1, 1.4]);
+  const tagsOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  // Divider scroll-out animation (scaleX)
+  const lineScaleX = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const lineOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+
+  // Fade-out for other elements at 40% scroll
+  const fadeOutOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
   const yourName = "Yogesh";
 
@@ -88,7 +121,7 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full min-h-screen flex items-end overflow-hidden"
+      className="relative w-full min-h-screen flex items-end"
     >
       <motion.div
         className="absolute inset-0"
@@ -141,6 +174,7 @@ export default function HeroSection() {
         sub="Full-Stack Dev"
         position="top-[22%] right-[8%]"
         delay={0}
+        scrollStyle={{ x: card1X, scale: card1Scale, opacity: card1Opacity }}
       />
       <FloatingCard
         label="Location"
@@ -148,6 +182,7 @@ export default function HeroSection() {
         sub="Open to remote"
         position="top-[42%] right-[5%]"
         delay={0.8}
+        scrollStyle={{ x: card2X, scale: card2Scale, opacity: card2Opacity }}
       />
 
       <motion.div
@@ -155,14 +190,17 @@ export default function HeroSection() {
         className="relative z-10 w-full px-10 md:px-16 pb-14 md:pb-20"
       >
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
-          <motion.div variants={itemVariants} className="mb-6">
+          <motion.div variants={itemVariants} className="mb-6" style={{ opacity: fadeOutOpacity }}>
             <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-medium tracking-widest ${isDark ? 'text-brand-teal border-brand-teal/25 bg-brand-teal/8' : 'text-black border-black/25 bg-black/8'}`}>
               <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${isDark ? 'bg-brand-teal' : 'bg-black'}`} />
               AVAILABLE FOR WORK
             </span>
           </motion.div>
 
-          <h1 className={`text-[clamp(3rem,8vw,7rem)] font-black leading-[0.95] tracking-[-0.04em] mb-3 ${isDark ? 'text-white' : 'text-black'}`}>
+          <motion.h1
+            className={`text-[clamp(3rem,8vw,7rem)] font-black leading-[0.95] tracking-[-0.04em] mb-3 ${isDark ? 'text-white' : 'text-black'}`}
+            style={{ y: nameY, x: nameX, rotate: nameRotate, scale: nameScale, opacity: nameOpacity }}
+          >
             {yourName.split("").map((char, i) => (
               <motion.span
                 key={i}
@@ -176,9 +214,9 @@ export default function HeroSection() {
                 {char}
               </motion.span>
             ))}
-          </h1>
+          </motion.h1>
 
-          <motion.div variants={itemVariants} className="mb-3" key={isDark ? 'dark' : 'light'}>
+          <motion.div variants={itemVariants} className="mb-3" key={isDark ? 'dark' : 'light'} style={{ x: roleX, scale: roleScale, opacity: roleOpacity }}>
             <h2
               className="text-[clamp(1.8rem,4vw,3.5rem)] font-black tracking-[-0.03em]"
               style={{
@@ -197,6 +235,7 @@ export default function HeroSection() {
           <motion.p
             variants={itemVariants}
             className={`text-sm font-medium tracking-[0.06em] mb-6 uppercase ${isDark ? 'text-white/40' : 'text-black/50'}`}
+            style={{ x: roleX, scale: roleScale, opacity: roleOpacity }}
           >
             Full-Stack Engineer &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Open to
             Opportunities
@@ -205,10 +244,15 @@ export default function HeroSection() {
           <motion.div
             variants={itemVariants}
             className="w-10 h-0.5 mb-7 rounded-full"
-            style={{ background: isDark ? "linear-gradient(90deg, #14d2a0, transparent)" : "linear-gradient(90deg, #000000, transparent)" }}
+            style={{ 
+              scaleX: lineScaleX, 
+              opacity: lineOpacity, 
+              transformOrigin: "center center",
+              background: isDark ? "linear-gradient(90deg, #14d2a0, transparent)" : "linear-gradient(90deg, #000000, transparent)" 
+            }}
           />
 
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-8">
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-8" style={{ opacity: fadeOutOpacity }}>
             <MagneticButton variant="primary" isDark={isDark}>View my work →</MagneticButton>
             <MagneticButton variant="outline" isDark={isDark} onClick={handleDownloadCV}>Download CV</MagneticButton>
             <MagneticButton variant="outline" isDark={isDark} onClick={scrollToContact}>Let's talk</MagneticButton>
@@ -217,8 +261,9 @@ export default function HeroSection() {
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap items-center justify-between gap-6"
+            style={{ opacity: fadeOutOpacity }}
           >
-            <div className="flex flex-wrap gap-2">
+            <motion.div className="flex flex-wrap gap-2" style={{ x: tagsX, scale: tagsScale, opacity: tagsOpacity }}>
               {["REACT", "TYPESCRIPT", "SPRING BOOT", "JAVA", "DEVOPS", "SQL", "CI/CD"].map(
                 (tag) => (
                   <span
@@ -229,9 +274,9 @@ export default function HeroSection() {
                   </span>
                 )
               )}
-            </div>
+            </motion.div>
 
-            <div className="flex gap-6">
+            <motion.div className="flex gap-6" style={{ x: tagsX, scale: tagsScale, opacity: tagsOpacity }}>
               {[
                 ["3+", "YEARS EXP"],
                 ["20+", "PROJECTS"],
@@ -242,7 +287,7 @@ export default function HeroSection() {
                   <p className={`text-[9px] tracking-widest mt-1 ${isDark ? 'text-white/30' : 'text-black/40'}`}>{label}</p>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
@@ -250,6 +295,7 @@ export default function HeroSection() {
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 8, 0] }}
+        style={{ opacity: fadeOutOpacity }}
         transition={{ delay: 1.8, duration: 0.8, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
         onClick={() => {
           const aboutSection = document.getElementById('about');

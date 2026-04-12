@@ -5,6 +5,7 @@ import Education from './components/Education'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import HeroSection from './components/HeroSection'
+import ManifestoSection from './components/ManifestoSection'
 import useSmoothScroll from './hooks/useSmoothScroll'
 import Preloader from './components/Preloader'
 
@@ -20,6 +21,7 @@ function App() {
         <section id="home">
           <HeroSection />
         </section>
+        <ManifestoSection />
 
         <Navbar />
 
