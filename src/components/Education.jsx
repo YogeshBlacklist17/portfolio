@@ -25,7 +25,7 @@ const getEducationData = (t) => [
     name: t('education.bachelor.name'),
     duration: t('education.bachelor.duration'),
     description: t('education.bachelor.description'),
-    skills: ['Circuit Design', 'Programming', 'Electronics', 'Power Systems'],
+    skills: ['Electrical Engineering', 'Electronics', 'Programming', 'Power Systems'],
   },
   {
     id: 'master',
@@ -33,7 +33,7 @@ const getEducationData = (t) => [
     name: t('education.master.name'),
     duration: t('education.master.duration'),
     description: t('education.master.description'),
-    skills: ['Computer Science', 'Research', 'Advanced Topics'],
+    skills: ['Applied Computer Science', 'Software Engineering', 'Distributed Systems'],
   },
 ]
 

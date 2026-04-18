@@ -1,101 +1,7 @@
 import { useRef, useEffect, useState, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion'
 import './WorkSection.css'
-
-/* ══════════════════════════════════════════════
-   DATA
-══════════════════════════════════════════════ */
-const EXPERIENCES = [
-  {
-    id: 'exp-1',
-    role: 'Senior Software Developer',
-    company: '6D Technologies',
-    location: 'Bangalore, India',
-    period: 'Jan 2025 – Feb 2026',
-    type: 'Full-time',
-    accent: '#7c3aed',
-    stack: ['Spring Boot', 'React', 'Kubernetes', 'GitLab CI/CD', 'Keycloak', 'Docker', 'JOLT', 'OpenShift'],
-    highlights: [
-      'Engineered backend API modules for Vodacom Congo VDRC platform — Customer 360 dashboard serving 1M+ telecom subscribers.',
-      'Automated CI/CD end-to-end via GitLab: code review, release tagging, Docker builds & OpenShift deployments — reduced release errors by 30%.',
-      'Reduced JSON integration effort by 80% using JOLT transformations, decoupling payload mapping from API spec changes.',
-      'Integrated backend with ESB, billing platforms & 6 microservices including billing config, customer mgmt, and financial approval workflows.',
-      'Built a reusable React component library with i18n config-based labels for multi-language deployments across 5 countries — zero code duplication.',
-      'Secured the platform with Keycloak RBAC enforcing role-based & scope-based menu access for hundreds of agents and administrators.',
-      'Led cross-continental feature review demos across 4 continents, reducing requirement misunderstandings by 40%.',
-    ],
-  },
-  {
-    id: 'exp-2',
-    role: 'Application Developer',
-    company: 'IBM India Pvt. Ltd.',
-    location: 'Bangalore, India',
-    period: 'Feb 2022 – Aug 2024',
-    type: 'Full-time',
-    accent: '#0f62fe',
-    stack: ['Spring Boot', 'Angular', 'Jenkins', 'AWS', 'Kubernetes', 'Java', 'Postman', 'HP ALM'],
-    highlights: [
-      'Architected Jenkins CI/CD pipelines following AWS & Red Hat Kubernetes best practices — cut deployment time by 40%.',
-      'Migrated 500,000+ medical records from Lotus Notes to cloud with zero data loss, rebuilding the UI in Angular with reactive forms and RBAC email approval workflows.',
-      'Resolved 1,000+ UAT defects across 25 Angular UI screens using structured root-cause analysis, earning client commendations on 3 consecutive project reviews.',
-      'Delivered Spring Boot REST APIs with layered service architecture for 200+ internal users, debugging via Postman and server-side log analysis.',
-      'Owned HP ALM module end-to-end — restored full CI pipeline stability after Java 8→17 upgrade, resolving all regressions within a single 2-week sprint.',
-      'Mentored 4 junior developers, reducing onboarding time by 35% and increasing sprint completion from 60% to 85% within 2 months.',
-      'Recognised with IBM Star of the Month for measurable mentoring impact and cross-team knowledge transfer.',
-    ],
-  },
-]
-
-const PROJECTS = [
-  {
-    id: 'proj-1',
-    title: 'Vodacom VDRC Platform',
-    tag: 'Telecom · Enterprise',
-    description: 'Customer 360 dashboard for Vodacom Congo serving 1M+ telecom subscribers. Full backend-to-frontend system with microservice orchestration, Keycloak security, and multi-country i18n.',
-    tech: ['Spring Boot', 'React', 'Kubernetes', 'Keycloak', 'Docker', 'JOLT'],
-    accent: '#7c3aed',
-    year: '2025',
-    impact: '1M+ users · 5 countries · 30% fewer release errors',
-    links: { github: null, live: null },
-  },
-  {
-    id: 'proj-2',
-    title: 'Medical Records Migration',
-    tag: 'Healthcare · Cloud',
-    description: 'Migrated 500,000+ medical records from Lotus Notes to cloud with zero data loss. Rebuilt the full UI in Angular with reactive forms, RBAC email approval workflows, and real-time audit trails.',
-    tech: ['Angular', 'Spring Boot', 'AWS', 'Jenkins', 'Java 17'],
-    accent: '#0f62fe',
-    year: '2023',
-    impact: '500K+ records · Zero data loss · 40% faster deployments',
-    links: { github: null, live: null },
-  },
-  {
-    id: 'proj-3',
-    title: 'Portfolio — zarcerog.com style',
-    tag: 'Frontend · Creative',
-    description: 'This portfolio — a fully animated, dark/light-mode React SPA with GSAP scroll-driven reveals, Framer Motion spring transitions, custom cursor, preloader, and i18n. Every section built from scratch.',
-    tech: ['React', 'Framer Motion', 'GSAP', 'Tailwind', 'Vite'],
-    accent: '#ec4899',
-    year: '2026',
-    impact: 'Personal brand · Fully animated',
-    links: { github: 'https://github.com/YogeshBlacklist17', live: '#' },
-  },
-]
-
-const SKILLS = [
-  'TypeScript', 'JavaScript', 'Java', 'Swift', 'Kotlin', 'Python',
-  'React', 'Next.js', 'Angular', 'React Native',
-  'Spring Boot', 'Node.js', 'Express', 'tRPC',
-  'MongoDB', 'PostgreSQL', 'Redis', 'MySQL',
-  'Docker', 'Kubernetes', 'OpenShift', 'AWS', 'Vercel',
-  'Jenkins', 'GitLab CI/CD', 'GitHub Actions',
-  'Keycloak', 'Figma', 'GSAP', 'Three.js', 'Framer Motion',
-  'REST API', 'GraphQL', 'Microservices', 'JOLT',
-  'HP ALM', 'Postman', 'Kafka',
-]
-
-/* double for seamless marquee */
-const SKILLS_DOUBLED = [...SKILLS, ...SKILLS]
 
 /* ══════════════════════════════════════════════
    HOOKS
@@ -206,6 +112,7 @@ function ExpCard({ exp, isActive, isCollapsed, onClick, index }) {
    PROJECT CARD
 ══════════════════════════════════════════════ */
 function ProjCard({ proj, index }) {
+  const { t } = useTranslation()
   const [hovered, setHovered] = useState(false)
 
   return (
@@ -250,7 +157,7 @@ function ProjCard({ proj, index }) {
         <p className="proj-card__desc">{proj.description}</p>
 
         <div className="proj-card__impact">
-          <span className="proj-card__impact-label">Impact</span>
+          <span className="proj-card__impact-label">{t('work.impact')}</span>
           <span className="proj-card__impact-value">{proj.impact}</span>
         </div>
 
@@ -274,13 +181,14 @@ function ProjCard({ proj, index }) {
 /* ══════════════════════════════════════════════
    SKILLS MARQUEE
 ══════════════════════════════════════════════ */
-function SkillsMarquee() {
+function SkillsMarquee({ skills }) {
+  const skillsDoubled = [...skills, ...skills]
   return (
     <div className="skills-marquee">
       <div className="skills-marquee__fade skills-marquee__fade--left" />
       <div className="skills-marquee__fade skills-marquee__fade--right" />
       <div className="skills-marquee__track">
-        {SKILLS_DOUBLED.map((skill, i) => (
+        {skillsDoubled.map((skill, i) => (
           <span key={i} className="skills-marquee__pill">
             <span className="skills-marquee__dot" />
             {skill}
@@ -294,15 +202,15 @@ function SkillsMarquee() {
 /* ══════════════════════════════════════════════
    TIMELINE SPINE (left decoration)
 ══════════════════════════════════════════════ */
-function TimelineSpine({ activeId, isDark }) {
+function TimelineSpine({ activeId, isDark, experiences }) {
   return (
     <div className="timeline-spine">
       <div className="timeline-spine__line" />
-      {EXPERIENCES.map((exp, i) => (
+      {experiences.map((exp, i) => (
         <motion.div
           key={exp.id}
           className="timeline-spine__node"
-          style={{ top: `${(i / (EXPERIENCES.length - 1)) * 72 + 14}%` }}
+          style={{ top: `${(i / (experiences.length - 1)) * 72 + 14}%` }}
           animate={{
             scale: activeId === exp.id ? 1.4 : 1,
             backgroundColor: activeId === exp.id ? exp.accent : isDark ? '#333' : '#ddd',
@@ -324,9 +232,14 @@ function TimelineSpine({ activeId, isDark }) {
    MAIN SECTION
 ══════════════════════════════════════════════ */
 export default function WorkSection() {
+  const { t } = useTranslation()
   const isDark = useDarkMode()
   const sectionRef = useRef(null)
   const [activeExp, setActiveExp] = useState(null)
+
+  const experiences = t('work.experiences', { returnObjects: true })
+  const projects = t('work.projectsList', { returnObjects: true })
+  const skills = t('work.skillsList', { returnObjects: true })
 
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] })
   const headingY = useTransform(scrollYProgress, [0.0, 0.18], [60, 0])
@@ -350,29 +263,29 @@ export default function WorkSection() {
 
       {/* ══════════════ SECTION HEADER ══════════════ */}
       <motion.div className="work-header" style={{ y: smoothY, opacity: headingOpacity }}>
-        <span className="work-eyebrow">/ PORTFOLIO</span>
+        <span className="work-eyebrow">{t('work.eyebrow')}</span>
         <h2 className="work-heading">
-          Work &amp; <span className="work-heading-accent">Projects</span>
+          {t('work.title')}
         </h2>
         <p className="work-subheading">
-          3+ years building production systems across telecom, healthcare &amp; open source.
+          {t('work.subtitle')}
         </p>
       </motion.div>
 
       {/* ══════════════ EXPERIENCE ══════════════ */}
       <div className="work-block">
         <div className="work-block__label">
-          <span className="work-block__label-text">EXPERIENCE</span>
+          <span className="work-block__label-text">{t('work.experience')}</span>
           <div className="work-block__label-line" />
         </div>
 
         <div className="work-exp-layout">
           {/* Left — decorative timeline */}
-          <TimelineSpine activeId={activeExp} isDark={isDark} />
+          <TimelineSpine activeId={activeExp} isDark={isDark} experiences={experiences} />
 
           {/* Right — cards */}
           <div className="work-exp-cards">
-            {EXPERIENCES.map((exp, i) => (
+            {experiences.map((exp, i) => (
               <ExpCard
                 key={exp.id}
                 exp={exp}
@@ -389,12 +302,12 @@ export default function WorkSection() {
       {/* ══════════════ PROJECTS ══════════════ */}
       <div className="work-block">
         <div className="work-block__label">
-          <span className="work-block__label-text">PROJECTS</span>
+          <span className="work-block__label-text">{t('work.projectsLabel')}</span>
           <div className="work-block__label-line" />
         </div>
 
         <div className="work-proj-grid">
-          {PROJECTS.map((proj, i) => (
+          {projects.map((proj, i) => (
             <ProjCard key={proj.id} proj={proj} index={i} />
           ))}
         </div>
@@ -403,10 +316,10 @@ export default function WorkSection() {
       {/* ══════════════ SKILLS MARQUEE ══════════════ */}
       <div className="work-block">
         <div className="work-block__label">
-          <span className="work-block__label-text">SKILLS</span>
+          <span className="work-block__label-text">{t('work.skillsLabel')}</span>
           <div className="work-block__label-line" />
         </div>
-        <SkillsMarquee />
+        <SkillsMarquee skills={skills} />
       </div>
 
       {/* Scroll hint */}
@@ -424,7 +337,7 @@ export default function WorkSection() {
             ? 'linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent)'
             : 'linear-gradient(90deg,transparent,rgba(0,0,0,0.35),transparent)'
         }} />
-        SCROLL
+        {t('work.scroll')}
       </motion.button>
     </section>
   )

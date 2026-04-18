@@ -10,48 +10,51 @@
   },
   "home": {
     "welcome": "Willkommen in meinem Portfolio",
-    "title": "Full Stack Entwickler"
+    "title": "Backend / Full-Stack Entwickler",
+    "viewWork": "Meine Arbeit ansehen →",
+    "downloadCV": "Lebenslauf herunterladen",
+    "letsTalk": "Lass uns sprechen"
   },
   "about": {
     "title": "Über mich",
-    "role": "Full Stack Entwickler",
-    "description": "Ein leidenschaftlicher Entwickler mit Expertise im Bau moderner Webanwendungen. Ich liebe es, saubere, effiziente und benutzerfreundliche Lösungen zu erstellen. Mit einem starken Fundament in Frontend- und Backend-Technologien erwecke ich Ideen durch eleganten Code und durchdachtes Design zum Leben.",
+    "role": "Backend / Full-Stack Entwickler",
+    "description": "Full-Stack-Entwickler mit 3 Jahren Erfahrung in der Entwicklung skalierbarer CRM-Systeme, Cloud-Migrationsplattformen und Testautomatisierungstools für globale Telekommunikationskunden einschließlich Vodafone, Safaricom, Yettel und Vodacom Congo. Experte für Java, Spring Boot, React, Angular, Kubernetes, Docker und GitLab CI/CD. Reduzierte den Integrationsaufwand um 80%, verkürzte die Bereitstellungszeit um 40% und migrierte über 500.000 Datensätze in die Cloud ohne Datenverlust. Erfahrener interkultureller Kollaborator, der in afrikanischen, asiatischen und europäischen Kundenumgebungen gearbeitet hat. Derzeit Studium der MSc in Angewandter Informatik an der TH Deggendorf, Deutschland.",
     "cta": "Auf LinkedIn verbinden",
     "stats": {
-      "experience": "Erfahrung",
-      "projects": "Projekte",
-      "clients": "Kunden",
-      "collaborations": "Zusammenarbeiten"
+      "experience": "Jahre Erfahrung",
+      "projects": "Unternehmensprojekte",
+      "clients": "Globale Kunden",
+      "collaborations": "Kontinentalübergreifende Teams"
     }
   },
   "education": {
     "title": "Mein Bildungsweg",
     "school": {
       "title": "Schule",
-      "name": "Ihr Schulname",
-      "duration": "Jahr - Jahr",
-      "description": "Grundlagen in Naturwissenschaften und Mathematik."
+      "name": "Thiagarajar College of Engineering",
+      "duration": "2018 - 2022",
+      "description": "BE Elektrotechnik und Elektronik, Anna University, Indien. GPA: 8,6/10"
     },
     "bachelor": {
       "title": "Bachelor",
-      "name": "EEE Ingenieurwesen",
+      "name": "BE Elektrotechnik und Elektronik",
       "duration": "2018 - 2022",
-      "description": "Elektro- und Informationstechnik mit Fokus auf Kerningenieurwesen und Programmierung."
+      "description": "Thiagarajar College of Engineering, Anna University, Indien. GPA: 8,6 von 10. Schwerpunkt auf Ingenieurgrundlagen und Programmierung."
     },
     "master": {
       "title": "Master",
-      "name": "Zukünftige Studien",
-      "duration": "Geplant",
-      "description": "Planung, weiterführende Studien in Informatik / Deutschland zu absolvieren."
+      "name": "MSc Angewandte Informatik",
+      "duration": "Mär 2026 – heute",
+      "description": "TH Deggendorf, Deutschland. Derzeit Studium der Angewandten Informatik mit Schwerpunkt auf Softwareentwicklung und verteilten Systemen."
     }
   },
   "skills": {
-    "title": "Fähigkeiten",
-    "description": "Ihre Fähigkeiten und Technologien kommen hierher"
+    "title": "Kernkompetenzen",
+    "description": "Backend-Entwicklung: Java, Spring Boot, Hibernate JPA, REST API Design, GraphQL, JOLT, Microservices Architektur. Frontend-Entwicklung: React, Angular, TypeScript, HTML5, CSS3, i18n Lokalisierung, Reactive Forms. DevOps und Cloud: Docker, Kubernetes, OpenShift, Jenkins, GitLab CI/CD, AWS, Red Hat, CI/CD Pipeline Design. Datenbank und Tools: SQL Server, SSMS, DBeaver, Komplexe SQL-Abfragen, Massen-Datenmigration, Postman, JIRA, Confluence. Sicherheit und Authentifizierung: Keycloak, RBAC, OAuth2, Rollenbasierte Zugriffssteuerung, SSO, Scope-basierte Berechtigungen. Methoden: Agile, Scrum, Sprint-Planung, Code Review, TDD, UAT, Technische Dokumentation, Stakeholder-Management. Interkulturelle Fähigkeiten: Internationales Stakeholder-Management, Multi-Zeitzonen-Kollaboration, Multikulturelle Teamführung, Interkulturelle Kommunikation."
   },
   "projects": {
-    "title": "Projekte",
-    "description": "Ihre Projektpräsentation kommt hierher"
+    "title": "Schlüsselprojekte",
+    "description": "Vodacom VDRC Plattform: Customer 360 Dashboard für 1M+ Telekommunikationskunden. Medizinische Datensatz-Migration: 500K+ Datensätze ohne Datenverlust migriert. Unternehmens-CI/CD-Pipelines: Bereitstellungszeit um 40% in allen Umgebungen reduziert."
   },
   "contact": {
     "title": "Kontakt",
@@ -80,7 +83,10 @@
     "noSubject": "Kein Betreff",
     "recipientName": "Yogesh",
     "emailSource": "Portfolio Kontaktseite",
-    "professionalMessageTemplate": "Hallo Yogesh,\n\nIch habe Ihr Portfolio gesehen und war von Ihrer Arbeit beeindruckt. Ich möchte eine potenzielle Möglichkeit mit Ihnen besprechen.\n\nIch freue mich auf die Verbindung!"
+    "professionalMessageTemplate": "Hallo Yogesh,\n\nIch habe Ihr Portfolio gesehen und war von Ihrer Arbeit beeindruckt. Ich möchte eine potenzielle Möglichkeit mit Ihnen besprechen.\n\nIch freue mich auf die Verbindung!",
+    "phone": "+49 176 68203472",
+    "location": "Deggendorf, Deutschland",
+    "visa": "Deutsches Studentenvisum (MSc an der TH Deggendorf)"
   },
   "faq": {
     "title": "Häufig gestellte Fragen",
@@ -88,24 +94,119 @@
     "items": {
       "q1": {
         "question": "Wer sind Sie und worauf spezialisieren Sie sich?",
-        "answer": "Ich bin ein leidenschaftlicher Full-Stack-Entwickler, der sich auf den Bau moderner Webanwendungen mit React, Node.js und Cloud-Technologien spezialisiert hat. Ich konzentriere mich auf die Erstellung skalierbarer, benutzerzentrierter Lösungen, die echte Probleme lösen."
+        "answer": "Ich bin ein Backend/Full-Stack-Entwickler mit 3 Jahren Erfahrung in der Unternehmensentwicklung, spezialisiert auf Java, Spring Boot, React, Angular und Cloud-Technologien. Ich konzentriere mich auf den Bau skalierbarer CRM-Systeme, Cloud-Migrationsplattformen und Testautomatisierungstools für globale Telekommunikationskunden."
       },
       "q2": {
         "question": "Mit welchen Technologien arbeiten Sie?",
-        "answer": "Ich arbeite mit React, Next.js, TypeScript, Node.js, Python, PostgreSQL, MongoDB, AWS, Docker und Git. Ich erkunde ständig neue Technologien, um auf dem Laufenden über die Best Practices der Branche zu bleiben."
+        "answer": "Ich arbeite mit Java, Spring Boot, Hibernate JPA, React, Angular, TypeScript, Kubernetes, Docker, GitLab CI/CD, AWS, Keycloak, SQL Server und PostgreSQL. Ich habe umfangreiche Erfahrung mit Microservices-Architektur, REST-APIs und unternehmenskritischen Anwendungen."
       },
       "q3": {
         "question": "Sind Sie offen für Umzüge oder Remote-Stellen?",
-        "answer": "Ja, ich bin sowohl für Remote- als auch für Vor-Ort-Möglichkeiten offen. Ich bin flexibel bei Umzügen für die richtige Stelle und gedeihe in kollaborativen, zukunftsorientierten Umgebungen."
+        "answer": "Ja, ich bin derzeit in Deggendorf, Deutschland für mein MSc-Studium ansässig. Ich bin sowohl für Remote- als auch für Vor-Ort-Möglichkeiten in ganz Deutschland und Europa offen. Ich bin als Werkstudent (20 Stunden/Woche) mit sofortigem Start verfügbar."
       },
       "q4": {
         "question": "Können Sie in Teamumgebungen arbeiten?",
-        "answer": "Absolut. Ich habe umfangreiche Erfahrung in der Arbeit mit agilen Teams, der Teilnahme an Code-Reviews und der Zusammenarbeit mit funktionsübergreifenden Teams. Ich schätze klare Kommunikation und gemeinsame Verantwortung."
+        "answer": "Absolut. Ich habe umfangreiche Erfahrung in der Arbeit mit funktionsübergreifenden Teams in Afrika, Asien und Europa. Ich habe Feature-Review-Demos über 4 Kontinente geleitet und Junior-Entwickler mentoriert, was die Onboarding-Zeit um 35% reduzierte."
       },
       "q5": {
         "question": "Wie kann ich Sie schnell kontaktieren?",
-        "answer": "Sie können mich per E-Mail über mein Portfolio-Kontaktformular, LinkedIn oder GitHub erreichen. Ich antworte normalerweise innerhalb von 24-48 Stunden und bin immer offen für die Diskussion neuer Möglichkeiten."
+        "answer": "Sie können mich per E-Mail unter yogesh.mayocipom2001@gmail.com, Telefon unter +49 176 68203472 oder LinkedIn unter linkedin.com/in/yogesh-m314ab8264 erreichen. Ich antworte normalerweise innerhalb von 24-48 Stunden."
       }
     }
+  },
+  "work": {
+    "title": "Arbeit & Projekte",
+    "eyebrow": "/ PORTFOLIO",
+    "subtitle": "3+ Jahre Entwicklung von Produktionssystemen in den Bereichen Telekommunikation, Healthcare & Open Source.",
+    "experience": "ERFAHRUNG",
+    "projectsLabel": "PROJEKTE",
+    "skillsLabel": "FÄHIGKEITEN",
+    "impact": "Auswirkung",
+    "scroll": "SCROLL",
+    "experiences": [
+      {
+        "id": "exp-1",
+        "role": "Senior Software Entwickler",
+        "company": "6D Technologies",
+        "location": "Bangalore, Indien",
+        "period": "Jan 2025 – Feb 2026",
+        "type": "Vollzeit",
+        "accent": "#7c3aed",
+        "stack": ["Spring Boot", "React", "Kubernetes", "GitLab CI/CD", "Keycloak", "Docker", "JOLT", "OpenShift"],
+        "highlights": [
+          "Entwicklung von End-to-End CRM-Modulen mit React, Spring Boot und Kubernetes für die VDRC-Plattform von Vodacom Congo, Bereitstellung des Customer 360 Dashboards für über 1 Million Telekommunikationskunden.",
+          "Reduzierung des JSON-Payload-Integrationsaufwands um 80% durch Implementierung von JOLT-Transformationen, die die Payload-Mapping vollständig von API-Spezifikationsänderungen entkoppelten.",
+          "Entwicklung einer wiederverwendbaren React-Komponentenbibliothek mit i18n-Konfigurations-basierten Labels, enabling Multi-Language-Bereitstellungen in 5 Ländern ohne Code-Duplizierung.",
+          "Sicherung der gesamten Plattform mit Keycloak RBAC, Durchsetzung von rollenbasierten und bereichsbasierten Menü- und Feature-Zugriffskontrollen für Hunderte von Agenten- und Administratorbenutzern.",
+          "Verantwortung für die vollständige GitLab CI/CD-Pipeline: Code-Review, Release-Tagging, Docker-Image-Builds und OpenShift-Bereitstellungen, Standardisierung von Deployment-Runbooks und Reduzierung von Release-Fehlern um 30%.",
+          "Integration von Backend-Services mit ESB, Abrechnungsplattformen und 6 Microservices einschließlich Abrechnungskonfiguration, Kundenmanagement und Finanz-Genehmigungs-Workflows.",
+          "Leitung von Feature-Review-Demos mit funktionsübergreifenden Implementierungsteams über 4 Kontinente einschließlich Afrika, Europa und Asien, Überbrückung kultureller Kommunikationsstile zur Abstimmung auf technische Lieferungen.",
+          "Navigation komplexer internationaler Kundenerwartungen durch Anpassung von Dokumentation, Demo-Tempo und technischer Sprache für nicht-englischsprachige Stakeholder bei Vodacom Congo."
+        ]
+      },
+      {
+        "id": "exp-2",
+        "role": "Application Entwickler",
+        "company": "IBM India Pvt. Ltd.",
+        "location": "Bangalore, Indien",
+        "period": "Feb 2022 – Aug 2024",
+        "type": "Vollzeit",
+        "accent": "#0f62fe",
+        "stack": ["Spring Boot", "Angular", "Jenkins", "AWS", "Kubernetes", "Java", "Postman", "HP ALM"],
+        "highlights": [
+          "Architektur von Jenkins CI/CD-Pipelines nach AWS und Red Hat Kubernetes Best Practices, Reduzierung der Bereitstellungszeit um 40% und vollständige Beseitigung manueller Bereitstellungsschritte.",
+          "Migration von über 500.000 medizinischen Datensätzen von Lotus Notes in die Cloud (LN2CLOUD-Projekt) ohne Datenverlust, Neuaufbau der vollständigen UI in Angular mit reaktiven Formularen.",
+          "Lösung von über 1.000 UAT-Fehlern über 25 Angular UI-Bildschirme über mehrere Sprint-Zyklen, direkte Verbesserung der Release-Qualität und Kundenlob auf 3 aufeinanderfolgenden Projektbewertungen.",
+          "Wiederherstellung der vollständigen CI-Pipeline-Stabilität nach dem Java 8 zu Java 17 Upgrade durch vollständige Übernahme des HP ALM-Moduls, Behebung kritischer Test-Verbindungsfehler.",
+          "Bereitstellung von Spring Boot REST-APIs mit sauberer geschichteter Service-Architektur zur Unterstützung von CRUD-Operationen über einen großen Unternehmenscodebase für über 200 interne Benutzer.",
+          "Debugging komplexer API-Fehler mit Postman und serverseitiger Log-Analyse, systematische Lösung aller funktionalen Regressionen, die durch die Java 17-Migration eingeführt wurden.",
+          "Mentoring von 4 Junior-Entwicklern in REST-API-Design, Code-Review-Standards und Debugging-Best-Practices, Reduzierung ihrer durchschnittlichen Onboarding-Zeit um 35%.",
+          "Initiierung von zweiwöchigen Entwickler-Wissens-Sharing-Sitzungen über ein 20-Personen-Engineering-Team, 20% Verbesserung der Sprint-Lieferungsrate.",
+          "Auszeichnung mit IBM Star of the Month Award für messbaren Mentoring-Impact und Cross-Team-Wissenstransfer."
+        ]
+      }
+    ],
+    "projectsList": [
+      {
+        "id": "proj-1",
+        "title": "Vodacom VDRC CRM",
+        "tag": "Telekommunikation · Enterprise",
+        "description": "Customer 360 Dashboard für Vodacom Congo mit 1M+ Telekommunikationskunden. Vollständiges Backend-to-Frontend-System mit Microservice-Orchestrierung, Keycloak-Sicherheit und Multi-Land-i18n.",
+        "tech": ["Spring Boot", "React", "Kubernetes", "Keycloak", "Docker", "JOLT"],
+        "accent": "#7c3aed",
+        "year": "2025",
+        "impact": "1M+ Benutzer · 5 Länder · 30% weniger Release-Fehler",
+        "links": { "github": null, "live": null }
+      },
+      {
+        "id": "proj-2",
+        "title": "Medical Records Migration - Horizon BCBSNJ",
+        "tag": "Healthcare · Cloud",
+        "description": "Migration von 500.000+ medizinischen Datensätzen von Lotus Notes in die Cloud ohne Datenverlust. Vollständiger Neuaufbau der UI in Angular mit reaktiven Formularen, RBAC-E-Mail-Genehmigungs-Workflows.",
+        "tech": ["Angular", "Spring Boot", "AWS", "Jenkins", "Java 17"],
+        "accent": "#0f62fe",
+        "year": "2023",
+        "impact": "500K+ Datensätze · Kein Datenverlust · 40% schnellere Bereitstellungen",
+        "links": { "github": null, "live": null }
+      },
+      {
+        "id": "proj-3",
+        "title": "Portfolio",
+        "tag": "Frontend · Kreativ",
+        "description": "Dieses Portfolio — eine voll animierte, Dark/Light-Mode React SPA mit GSAP Scroll-driven Reveals, Framer Motion Spring-Transitions, Custom Cursor, Preloader und i18n. Jeder Abschnitt von Grund auf neu erstellt.",
+        "tech": ["React", "Framer Motion", "GSAP", "Tailwind", "Vite"],
+        "accent": "#ec4899",
+        "year": "2026",
+        "impact": "Persönliche Marke · Vollständig animiert",
+        "links": { "github": "https://github.com/YogeshBlacklist17", "live": "#" }
+      }
+    ],
+    "skillsList": [
+      "Java", "Spring Boot", "Hibernate JPA", "React", "Angular", "TypeScript",
+      "Kubernetes", "Docker", "OpenShift", "Jenkins", "GitLab CI/CD", "AWS",
+      "Keycloak", "REST API", "GraphQL", "JOLT", "Microservices",
+      "SQL Server", "PostgreSQL", "Postman", "HP ALM", "JIRA", "Confluence",
+      "RBAC", "OAuth2", "SSO", "Agile", "Scrum", "TDD", "UAT"
+    ]
   }
 }

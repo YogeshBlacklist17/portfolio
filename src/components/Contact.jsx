@@ -389,29 +389,6 @@ const Contact = () => {
                 </motion.a>
               ))}
             </div>
-
-            {/* {!showPhone ? (
-              <motion.button
-                className="w-full py-3 px-4 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white font-medium transition-colors duration-200 hover:bg-green-50 dark:hover:bg-purple-900/20 hover:border-green-300 dark:hover:border-purple-700 hover:text-green-700 dark:hover:text-purple-400"
-                onClick={() => setShowPhone(true)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: 'spring', stiffness: 500, damping: 25 }}
-              >
-                {t('contact.revealPhone')}
-              </motion.button>
-            ) : (
-              <motion.div
-                className="text-center py-3 px-4 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-xl"
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.22 }}
-              >
-                <span className="text-green-700 dark:text-green-400 text-xl font-semibold tracking-wide">
-                  +91 98765 43210
-                </span>
-              </motion.div>
-            )} */}
           </GlowCard>
         </motion.div>
 

@@ -47,9 +47,9 @@ const CountUp = ({ end, duration = 2, suffix = '' }) => {
 }
 
 const statsData = [
-  { key: 'experience', suffix: '+', end: 4 },
+  { key: 'experience', suffix: '+', end: 3 },
   { key: 'projects', suffix: '+', end: 15 },
-  { key: 'clients', suffix: '+', end: 10 },
+  { key: 'clients', suffix: '+', end: 3 },
   { key: 'collaborations', suffix: '+', end: 3 },
 ]
 

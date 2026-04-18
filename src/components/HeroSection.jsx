@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import heroPhoto from "../assets/hero-photo.jpg";
 import resumePdf from "../assets/resume.pdf";
 import useTypewriter from "../hooks/useTypewriter";
@@ -37,6 +38,7 @@ const nameLetterVariants = {
 
 export default function HeroSection() {
   void motion;
+  const { t } = useTranslation();
   const ref = useRef(null);
   const role = useTypewriter(roles);
   const [isDark, setIsDark] = useState(() => {
@@ -115,6 +117,13 @@ export default function HeroSection() {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToWork = () => {
+    const workSection = document.getElementById('work');
+    if (workSection) {
+      workSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -253,9 +262,9 @@ export default function HeroSection() {
           />
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-8" style={{ opacity: fadeOutOpacity }}>
-            <MagneticButton variant="primary" isDark={isDark}>View my work →</MagneticButton>
-            <MagneticButton variant="outline" isDark={isDark} onClick={handleDownloadCV}>Download CV</MagneticButton>
-            <MagneticButton variant="outline" isDark={isDark} onClick={scrollToContact}>Let's talk</MagneticButton>
+            <MagneticButton variant="primary" isDark={isDark} onClick={scrollToWork}>{t('home.viewWork')}</MagneticButton>
+            <MagneticButton variant="outline" isDark={isDark} onClick={handleDownloadCV}>{t('home.downloadCV')}</MagneticButton>
+            <MagneticButton variant="outline" isDark={isDark} onClick={scrollToContact}>{t('home.letsTalk')}</MagneticButton>
           </motion.div>
 
           <motion.div
@@ -279,8 +288,8 @@ export default function HeroSection() {
             <motion.div className="flex gap-6" style={{ x: tagsX, scale: tagsScale, opacity: tagsOpacity }}>
               {[
                 ["3+", "YEARS EXP"],
-                ["20+", "PROJECTS"],
-                ["12+", "CLIENTS"],
+                ["15+", "PROJECTS"],
+                ["3+", "CLIENTS"],
               ].map(([num, label]) => (
                 <div key={label} className="text-right">
                   <p className={`text-xl font-black leading-none ${isDark ? 'text-white' : 'text-black'}`}>{num}</p>
