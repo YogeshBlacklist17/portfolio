@@ -107,6 +107,7 @@ export default function ManifestoSection() {
       }
     }
 
+    let rafId = null;
     function animate() {
       updateTarget();
 
@@ -115,10 +116,16 @@ export default function ManifestoSection() {
 
       applyTimeline(current);
 
-      requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
     }
 
     animate();
+
+    return () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [isDark, visible]);
 
   let wordIdx = 0;

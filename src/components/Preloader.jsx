@@ -15,7 +15,7 @@ function AnimatedWord({ word, onDone }) {
     const totalDuration = chars.length * charDuration + stayDuration;
     const timer = setTimeout(onDone, totalDuration);
     return () => clearTimeout(timer);
-  }, [word]);
+  }, [word, chars]);
 
   return (
     <span style={{ display: "inline-flex", gap: "0.04em" }}>

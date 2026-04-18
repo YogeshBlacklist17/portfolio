@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { getLenis } from '../hooks/useSmoothScroll';
 import '../styles/FAQ.css';
 
 const GlowCard = ({ children, className, glowColor = '34, 197, 94', activeGlowColor }) => {
@@ -63,7 +64,7 @@ const FAQ = () => {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     const section = document.querySelector('.faq-section');
@@ -191,7 +192,10 @@ const FAQ = () => {
         transition={{ delay: 1.8, duration: 0.8, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
         onClick={() => {
           const contactSection = document.getElementById('contact');
-          if (contactSection) {
+          const lenis = getLenis();
+          if (lenis && contactSection) {
+            lenis.scrollTo(contactSection);
+          } else if (contactSection) {
             contactSection.scrollIntoView({ behavior: 'smooth' });
           }
         }}

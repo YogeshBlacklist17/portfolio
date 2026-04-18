@@ -4,6 +4,7 @@ import AboutText from './AboutText'
 import Stats from './Stats'
 import GlassCard from './GlassCard'
 import portraitImg from '../../assets/about/img1.jpeg'
+import { getLenis } from '../../hooks/useSmoothScroll'
 import '../../styles/About.css'
 
 const smoothVariants = {
@@ -166,7 +167,10 @@ const AboutSection = () => {
         transition={{ delay: 1.8, duration: 0.8, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
         onClick={() => {
           const stackSection = document.getElementById('stack');
-          if (stackSection) {
+          const lenis = getLenis();
+          if (lenis && stackSection) {
+            lenis.scrollTo(stackSection);
+          } else if (stackSection) {
             stackSection.scrollIntoView({ behavior: 'smooth' });
           }
         }}

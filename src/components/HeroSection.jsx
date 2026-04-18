@@ -6,6 +6,7 @@ import resumePdf from "../assets/resume.pdf";
 import useTypewriter from "../hooks/useTypewriter";
 import MagneticButton from "./MagneticButton";
 import FloatingCard from "./FloatingCard";
+import { getLenis } from "../hooks/useSmoothScroll";
 
 const roles = ["Developer.", "Designer.", "Builder.", "Creator."];
 
@@ -37,7 +38,6 @@ const nameLetterVariants = {
 };
 
 export default function HeroSection() {
-  void motion;
   const { t } = useTranslation();
   const ref = useRef(null);
   const role = useTypewriter(roles);
@@ -115,14 +115,20 @@ export default function HeroSection() {
 
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
-    if (contactSection) {
+    const lenis = getLenis();
+    if (lenis && contactSection) {
+      lenis.scrollTo(contactSection);
+    } else if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const scrollToWork = () => {
     const workSection = document.getElementById('work');
-    if (workSection) {
+    const lenis = getLenis();
+    if (lenis && workSection) {
+      lenis.scrollTo(workSection);
+    } else if (workSection) {
       workSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -196,7 +202,7 @@ export default function HeroSection() {
 
       <motion.div
         style={{ y: contentY }}
-        className="relative z-10 w-full px-10 md:px-16 pb-14 md:pb-20"
+        className="relative z-10 w-full px-6 sm:px-8 md:px-16 pb-14 md:pb-20"
       >
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
           <motion.div variants={itemVariants} className="mb-6" style={{ opacity: fadeOutOpacity }}>
@@ -261,7 +267,7 @@ export default function HeroSection() {
             }}
           />
 
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-8" style={{ opacity: fadeOutOpacity }}>
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 mb-8" style={{ opacity: fadeOutOpacity }}>
             <MagneticButton variant="primary" isDark={isDark} onClick={scrollToWork}>{t('home.viewWork')}</MagneticButton>
             <MagneticButton variant="outline" isDark={isDark} onClick={handleDownloadCV}>{t('home.downloadCV')}</MagneticButton>
             <MagneticButton variant="outline" isDark={isDark} onClick={scrollToContact}>{t('home.letsTalk')}</MagneticButton>
@@ -308,7 +314,10 @@ export default function HeroSection() {
         transition={{ delay: 1.8, duration: 0.8, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
         onClick={() => {
           const aboutSection = document.getElementById('about');
-          if (aboutSection) {
+          const lenis = getLenis();
+          if (lenis && aboutSection) {
+            lenis.scrollTo(aboutSection);
+          } else if (aboutSection) {
             aboutSection.scrollIntoView({ behavior: 'smooth' });
           }
         }}

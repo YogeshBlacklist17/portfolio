@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { getLenis } from '../hooks/useSmoothScroll'
 
 // Generate particle positions once at module level
 const particlePositions = [...Array(8)].map(() => ({
@@ -310,7 +311,10 @@ const Education = () => {
         transition={{ delay: 1.8, duration: 0.8, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
         onClick={() => {
           const faqSection = document.getElementById('faq');
-          if (faqSection) {
+          const lenis = getLenis();
+          if (lenis && faqSection) {
+            lenis.scrollTo(faqSection);
+          } else if (faqSection) {
             faqSection.scrollIntoView({ behavior: 'smooth' });
           }
         }}

@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 const TECH_STACK = [
   { label: 'React 18', color: '#61dafb' },
   { label: 'Framer Motion', color: '#a855f7' },
-  { label: 'GSAP', color: '#88ce02' },
   { label: 'Tailwind CSS', color: '#38bdf8' },
   { label: 'Vite', color: '#646cff' },
 ]
@@ -36,7 +35,7 @@ export default function Footer() {
         backdropFilter: 'blur(10px)',
         padding: '0.75rem 1rem',
         boxSizing: 'border-box',
-        zIndex: 1000,
+        zIndex: 10,
       }}
     >
       <div style={{

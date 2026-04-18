@@ -20,13 +20,14 @@ function App() {
     <>
       <Preloader onComplete={() => setReady(true)} />
 
-      <main style={{ opacity: ready ? 1 : 0, transition: 'opacity 0.6s ease' }}>
+      <main style={{ opacity: ready ? 1 : 0, transition: 'opacity 0.6s ease', paddingBottom: '60px' }}>
+        <Navbar />
+
         <section id="home">
           <HeroSection />
         </section>
-        <ManifestoSection />
 
-        <Navbar />
+        <ManifestoSection />
 
         <section id="about">
           <AboutSection />

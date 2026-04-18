@@ -57,11 +57,12 @@ const Contact = () => {
   const [mounted, setMounted] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
-  const [showPhone, setShowPhone] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState('idle')
   const [errors, setErrors] = useState({})
   const sectionRef = useRef(null)
+  const canvasRef = useRef(null)
+  const animationRef = useRef(null)
 
   useEffect(() => {
     // Small delay so the snap animation fully settles before we run entrance
@@ -98,7 +99,7 @@ const Contact = () => {
     if (typeof document === 'undefined') return false
     // Check both class and localStorage for initial theme detection
     const isDarkClass = document.documentElement.classList.contains('dark')
-    const isDarkStorage = localStorage.getItem('theme') === 'dark'
+    const isDarkStorage = JSON.parse(localStorage.getItem('darkMode') || 'false')
     return isDarkClass || isDarkStorage
   })
 
@@ -201,9 +202,6 @@ const Contact = () => {
 
   const inputClass = (field) =>
     `form-input ${errors[field] ? 'error' : ''}`
-
-  const canvasRef = useRef(null)
-  const animationRef = useRef(null)
 
   useEffect(() => {
     if (shouldReduceMotion) return
@@ -336,15 +334,12 @@ const Contact = () => {
   }, [isDark, shouldReduceMotion])
 
   return (
-    <section ref={sectionRef} className="w-full min-h-screen py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0a0a0a] dark:to-[#111111] transition-colors duration-300 relative overflow-hidden">
-      {/* Custom canvas particle background - adapts to dark/light mode */}
-      {!shouldReduceMotion && (
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 pointer-events-none z-0"
-          style={{ width: '100%', height: '100%' }}
-        />
-      )}
+    <section ref={sectionRef} className="contact relative py-20 md:py-24 lg:py-28 xl:py-32">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{ width: '100%', height: '100%' }}
+      />
       
       {/* Static ambient glow — no animation, just a colour tint */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
@@ -519,7 +514,7 @@ const Contact = () => {
         onClick={() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[9px] tracking-widest cursor-pointer ${isDark ? 'text-white/20 hover:text-white/40' : 'text-black/60 hover:text-black/80'} transition-colors`}
+        className={`absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[9px] tracking-widest cursor-pointer ${isDark ? 'text-white/20 hover:text-white/40' : 'text-black/60 hover:text-black/80'} transition-colors`}
       >
         <motion.div
           animate={{ y: [0, 5, 0] }}

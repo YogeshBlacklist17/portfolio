@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion'
+import { getLenis } from '../hooks/useSmoothScroll'
 import './WorkSection.css'
 
 /* ══════════════════════════════════════════════
@@ -328,7 +329,15 @@ export default function WorkSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.8 }}
-        onClick={() => document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => {
+          const lenis = getLenis()
+          const element = document.getElementById('contact')
+          if (lenis && element) {
+            lenis.scrollTo(element)
+          } else if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }}
         className={`work-scroll-hint ${isDark ? 'work-scroll-hint--dark' : ''}`}
       >
         <motion.span animate={{ y: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>↓</motion.span>

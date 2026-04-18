@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion' // eslint-disable-line no-unused-vars
 import { useTranslation } from 'react-i18next'
+import { getLenis } from '../hooks/useSmoothScroll'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -68,10 +69,13 @@ const Navbar = () => {
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id)
-    if (el) {
+    const lenis = getLenis()
+    if (lenis && el) {
+      lenis.scrollTo(el)
+    } else if (el) {
       el.scrollIntoView({ behavior: 'smooth' })
-      setIsMobileMenuOpen(false)
     }
+    setIsMobileMenuOpen(false)
   }
 
   const toggleLanguage = () => {

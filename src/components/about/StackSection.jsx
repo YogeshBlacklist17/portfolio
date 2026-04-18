@@ -9,6 +9,7 @@ import {
   useAnimation,
 } from 'framer-motion'
 import GlassCard from './GlassCard'
+import { getLenis } from '../../hooks/useSmoothScroll'
 import './StackSection.css'
 
 /* ─── Individual Row — clip-reveals upward on scroll in ─ */
@@ -234,9 +235,15 @@ const StackSection = () => {
       {/* ── Scroll hint ── */}
       <motion.button
         style={{ opacity: hintOpacity }}
-        onClick={() =>
-          document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
-        }
+        onClick={() => {
+          const lenis = getLenis()
+          const element = document.getElementById('faq')
+          if (lenis && element) {
+            lenis.scrollTo(element)
+          } else if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }}
         className={`stack-scroll-hint ${isDark ? 'stack-scroll-hint--dark' : ''}`}
       >
         <motion.div
