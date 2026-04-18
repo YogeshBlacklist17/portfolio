@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   motion,
   useScroll,
@@ -9,25 +10,6 @@ import {
 } from 'framer-motion'
 import GlassCard from './GlassCard'
 import './StackSection.css'
-
-/* ─── Data ──────────────────────────────────────────── */
-const WHAT_I_BUILD = [
-  { label: 'LANGS',  items: 'TypeScript · Swift · Kotlin' },
-  { label: 'FRONT',  items: 'React · Next.js · React Native' },
-  { label: 'BACK',   items: 'Node.js · Express · tRPC' },
-  { label: 'DATA',   items: 'MongoDB · PostgreSQL · Redis' },
-  { label: 'TOOLS',  items: 'Figma · GSAP · Three.js' },
-  { label: 'DEPLOY', items: 'Vercel · AWS · Docker' },
-]
-
-const THE_CULTURE = [
-  { label: 'SOUND',      items: 'Miles Davis · Coltrane · Sade' },
-  { label: 'INSTRUMENT', items: 'Guitar, Drums' },
-  { label: 'READ',       items: 'Baldwin · Murakami · Camus' },
-  { label: 'WEAR',       items: 'Vintage' },
-  { label: 'CITY',       items: 'Barcelona → ??' },
-  { label: 'NOW',        items: 'Building in public. Slowly.' },
-]
 
 /* ─── Individual Row — clip-reveals upward on scroll in ─ */
 function StackRow({ label, items, index, sectionInView }) {
@@ -117,7 +99,27 @@ function StackBlock({ title, rows, scrollYProgress, direction, sectionInView }) 
 
 /* ─── Main component ─────────────────────────────────── */
 const StackSection = () => {
+  const { t } = useTranslation()
   const sectionRef = useRef(null)
+
+  // Build WHAT_I_BUILD from translations
+  const WHAT_I_BUILD = [
+    { label: t('stack.whatIBuild.langs'),  items: t('stack.whatIBuild.langsItems') },
+    { label: t('stack.whatIBuild.front'),  items: t('stack.whatIBuild.frontItems') },
+    { label: t('stack.whatIBuild.back'),   items: t('stack.whatIBuild.backItems') },
+    { label: t('stack.whatIBuild.data'),   items: t('stack.whatIBuild.dataItems') },
+    { label: t('stack.whatIBuild.tools'),  items: t('stack.whatIBuild.toolsItems') },
+    { label: t('stack.whatIBuild.deploy'), items: t('stack.whatIBuild.deployItems') },
+  ]
+
+  const THE_CULTURE = [
+    { label: t('stack.theCulture.sound'),      items: t('stack.theCulture.soundItems') },
+    { label: t('stack.theCulture.instrument'), items: t('stack.theCulture.instrumentItems') },
+    { label: t('stack.theCulture.read'),       items: t('stack.theCulture.readItems') },
+    { label: t('stack.theCulture.wear'),       items: t('stack.theCulture.wearItems') },
+    { label: t('stack.theCulture.city'),       items: t('stack.theCulture.cityItems') },
+    { label: t('stack.theCulture.now'),        items: t('stack.theCulture.nowItems') },
+  ]
 
   // Track the full scroll range of this section
   const { scrollYProgress } = useScroll({
@@ -198,13 +200,11 @@ const StackSection = () => {
           className="stack-eyebrow"
           style={{ y: eyebrowY, opacity: eyebrowOpacity }}
         >
-          / INDEX
+          {t('stack.eyebrow')}
         </motion.span>
-        <h2 className="stack-heading">
-          WHAT I <span className="stack-heading-accent">BUILD</span>
-          <br />
-          &amp; THE <span className="stack-heading-accent">CULTURE</span>
-        </h2>
+        <h2 className="stack-heading"
+          dangerouslySetInnerHTML={{ __html: t('stack.heading') }}
+        />
       </motion.div>
 
       {/* ── Divider line — draws itself as you scroll in ── */}
@@ -216,14 +216,14 @@ const StackSection = () => {
         style={{ y: smoothCardsExitY, opacity: cardsExitOpacity }}
       >
         <StackBlock
-          title="WHAT I BUILD"
+          title={t('stack.title')}
           rows={WHAT_I_BUILD}
           scrollYProgress={scrollYProgress}
           direction="left"
           sectionInView={isInView}
         />
         <StackBlock
-          title="THE CULTURE / WHAT MOVES ME"
+          title={t('stack.cultureTitle')}
           rows={THE_CULTURE}
           scrollYProgress={scrollYProgress}
           direction="right"
@@ -254,7 +254,7 @@ const StackSection = () => {
               : 'linear-gradient(90deg, transparent, rgba(0,0,0,0.4), transparent)',
           }}
         />
-        SCROLL
+        {t('stack.scroll')}
       </motion.button>
     </section>
   )

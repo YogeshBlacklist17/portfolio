@@ -18,7 +18,7 @@
   "about": {
     "title": "About Me",
     "role": "Backend / Full-Stack Developer",
-    "description": "Full-Stack Developer with 3 years of enterprise experience delivering scalable CRM systems, cloud migration platforms, and test automation tools for global telecom clients including Vodafone, Safaricom, Yettel, and Vodacom Congo. Expert in Java, Spring Boot, React, Angular, Kubernetes, Docker, and GitLab CI/CD. Reduced integration effort by 80%, cut deployment time by 40%, and migrated over 500,000 records to cloud with zero data loss. Experienced cross-cultural collaborator who has worked across African, Asian, and European client environments. Currently pursuing MSc in Applied Computer Science at TH Deggendorf, Germany.",
+    "description": "Full-Stack Developer with 3 years of enterprise experience delivering scalable CRM systems, cloud migration platforms for global telecom clients including Vodafone, Safaricom, Yettel, and Vodacom Congo. Expert in Java, Spring Boot, React, Angular, Kubernetes, Docker, and GitLab CI/CD.Experienced cross-cultural collaborator who has worked across African, Asian, and European client environments. Currently pursuing MSc in Applied Computer Science at TH Deggendorf, Germany.",
     "cta": "Connect on LinkedIn",
     "stats": {
       "experience": "Years Experience",
@@ -114,6 +114,41 @@
       }
     }
   },
+  "stack": {
+    "title": "WHAT I BUILD",
+    "cultureTitle": "THE CULTURE / WHAT MOVES ME",
+    "eyebrow": "/ INDEX",
+    "heading": "WHAT I <span class=\"stack-heading-accent\">BUILD</span><br />&amp; THE <span class=\"stack-heading-accent\">CULTURE</span>",
+    "scroll": "SCROLL",
+    "whatIBuild": {
+      "langs": "LANGS",
+      "langsItems": "Java · TypeScript · Kotlin",
+      "front": "FRONT",
+      "frontItems": "React · Angular · TypeScript · HTML5 · CSS3",
+      "back": "BACK",
+      "backItems": "Java · Spring Boot · Node.js · Express",
+      "data": "DATA",
+      "dataItems": "MongoDB · PostgreSQL · SQL Server",
+      "tools": "TOOLS",
+      "toolsItems": "Postman · GitLab CI/CD · JIRA · Docker",
+      "deploy": "DEPLOY",
+      "deployItems": "AWS · Kubernetes · Docker · Vercel"
+    },
+    "theCulture": {
+      "sound": "SOUND",
+      "soundItems": "Miles Davis · Sade · AR Rahman · Ilaiyaraaja",
+      "instrument": "INSTRUMENT",
+      "instrumentItems": "Guitar · Drums · Piano",
+      "read": "READ",
+      "readItems": "R.K. Narayan · Arundhati Roy · Camus · Murakami",
+      "wear": "WEAR",
+      "wearItems": "Semi casuals",
+      "city": "CITY",
+      "cityItems": "Munich",
+      "now": "NOW",
+      "nowItems": "Doing Master's in Computer Science at TH Deggendorf"
+    }
+  },
   "work": {
     "title": "Work & Projects",
     "eyebrow": "/ PORTFOLIO",
@@ -193,7 +228,7 @@
         "id": "proj-3",
         "title": "Portfolio",
         "tag": "Frontend · Creative",
-        "description": "This portfolio — a fully animated, dark/light-mode React SPA with GSAP scroll-driven reveals, Framer Motion spring transitions, custom cursor, preloader, and i18n. Every section built from scratch.",
+        "description": "This portfolio a fully animated, dark/light-mode React SPA with GSAP scroll-driven reveals, Framer Motion spring transitions, custom cursor, preloader, and i18n. Every section built from scratch.",
         "tech": ["React", "Framer Motion", "GSAP", "Tailwind", "Vite"],
         "accent": "#ec4899",
         "year": "2026",

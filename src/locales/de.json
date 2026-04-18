@@ -18,13 +18,13 @@
   "about": {
     "title": "Über mich",
     "role": "Backend / Full-Stack Entwickler",
-    "description": "Full-Stack-Entwickler mit 3 Jahren Erfahrung in der Entwicklung skalierbarer CRM-Systeme, Cloud-Migrationsplattformen und Testautomatisierungstools für globale Telekommunikationskunden einschließlich Vodafone, Safaricom, Yettel und Vodacom Congo. Experte für Java, Spring Boot, React, Angular, Kubernetes, Docker und GitLab CI/CD. Reduzierte den Integrationsaufwand um 80%, verkürzte die Bereitstellungszeit um 40% und migrierte über 500.000 Datensätze in die Cloud ohne Datenverlust. Erfahrener interkultureller Kollaborator, der in afrikanischen, asiatischen und europäischen Kundenumgebungen gearbeitet hat. Derzeit Studium der MSc in Angewandter Informatik an der TH Deggendorf, Deutschland.",
+    "description": "Full-Stack-Entwickler mit 3 Jahren Erfahrung in der Entwicklung skalierbarer CRM-Systeme, Cloud-Migrationsplattformen und Testautomatisierungstools für globale Telekommunikationskunden einschließlich Vodafone, Safaricom, Yettel und Vodacom Congo. Experte für Java, Spring Boot, React, Angular, Kubernetes, Docker und GitLab CI/CD. Erfahrener interkultureller Kollaborator, der in afrikanischen, asiatischen und europäischen Kundenumgebungen gearbeitet hat. Derzeit Studium der MSc in Angewandter Informatik an der TH Deggendorf, Deutschland.",
     "cta": "Auf LinkedIn verbinden",
     "stats": {
       "experience": "Jahre Erfahrung",
-      "projects": "Unternehmensprojekte",
+      "projects": "Firmprojekte",
       "clients": "Globale Kunden",
-      "collaborations": "Kontinentalübergreifende Teams"
+      "collaborations": "Globale Teams"
     }
   },
   "education": {
@@ -71,8 +71,8 @@
     "emailPlaceholder": "ihre@email.com",
     "subjectPlaceholder": "Worum geht es?",
     "messagePlaceholder": "Ihre Nachricht...",
-    "generateProfessionalMessage": "✨ Professionelle Nachricht generieren",
-    "sendMessage": "Nachricht senden 🚀",
+    "generateProfessionalMessage": "Professionelle Nachricht generieren",
+    "sendMessage": "Nachricht senden",
     "sending": "Wird gesendet...",
     "messageSent": "Nachricht erfolgreich gesendet",
     "sendError": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
@@ -112,6 +112,41 @@
         "question": "Wie kann ich Sie schnell kontaktieren?",
         "answer": "Sie können mich per E-Mail unter yogesh.mayocipom2001@gmail.com, Telefon unter +49 176 68203472 oder LinkedIn unter linkedin.com/in/yogesh-m314ab8264 erreichen. Ich antworte normalerweise innerhalb von 24-48 Stunden."
       }
+    }
+  },
+  "stack": {
+    "title": "WAS ICH BAUE",
+    "cultureTitle": "DIE KULTUR / WAS MICH BEWEGT",
+    "eyebrow": "/ INDEX",
+    "heading": "WAS ICH <span class=\"stack-heading-accent\">BAUE</span><br />&amp; DIE <span class=\"stack-heading-accent\">KULTUR</span>",
+    "scroll": "SCROLL",
+    "whatIBuild": {
+      "langs": "SPRACHEN",
+      "langsItems": "Java · TypeScript · Kotlin",
+      "front": "FRONTEND",
+      "frontItems": "React · Angular · TypeScript · HTML5 · CSS3",
+      "back": "BACKEND",
+      "backItems": "Java · Spring Boot · Node.js · Express",
+      "data": "DATEN",
+      "dataItems": "MongoDB · PostgreSQL · SQL Server",
+      "tools": "TOOLS",
+      "toolsItems": "Postman · GitLab CI/CD · JIRA · Docker",
+      "deploy": "DEPLOYMENT",
+      "deployItems": "AWS · Kubernetes · Docker · Vercel"
+    },
+    "theCulture": {
+      "sound": "KLANG",
+      "soundItems": "Miles Davis · Sade · AR Rahman · Ilaiyaraaja",
+      "instrument": "INSTRUMENT",
+      "instrumentItems": "Gitarre · Schlagzeug · Klavier",
+      "read": "LESEN",
+      "readItems": "R.K. Narayan · Arundhati Roy · Camus · Murakami",
+      "wear": "KLEIDUNG",
+      "wearItems": "Halb formell",
+      "city": "STADT",
+      "cityItems": "München",
+      "now": "JETZT",
+      "nowItems": "Master an der TH Deggendorf"
     }
   },
   "work": {
@@ -193,12 +228,12 @@
         "id": "proj-3",
         "title": "Portfolio",
         "tag": "Frontend · Kreativ",
-        "description": "Dieses Portfolio — eine voll animierte, Dark/Light-Mode React SPA mit GSAP Scroll-driven Reveals, Framer Motion Spring-Transitions, Custom Cursor, Preloader und i18n. Jeder Abschnitt von Grund auf neu erstellt.",
+        "description": "Dieses Portfolio eine voll animierte, Dark/Light-Mode React SPA mit GSAP Scroll-driven Reveals, Framer Motion Spring-Transitions, Custom Cursor, Preloader und i18n. Jeder Abschnitt von Grund auf neu erstellt.",
         "tech": ["React", "Framer Motion", "GSAP", "Tailwind", "Vite"],
         "accent": "#ec4899",
         "year": "2026",
         "impact": "Persönliche Marke · Vollständig animiert",
-        "links": { "github": "https://github.com/YogeshBlacklist17", "live": "#" }
+        "links": { "github": "https://github.com/YogeshBlacklist17/portfolio", "live": "#" }
       }
     ],
     "skillsList": [

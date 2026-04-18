@@ -69,6 +69,49 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+/* Textarea specific styles to ensure scrolling works */
+textarea.form-input {
+  overflow-y: auto;
+  overflow-x: hidden;
+  resize: vertical;
+  min-height: 120px;
+  max-height: 300px;
+}
+
+/* Custom scrollbar styling for textarea */
+textarea.form-input::-webkit-scrollbar {
+  width: 8px;
+}
+
+textarea.form-input::-webkit-scrollbar-track {
+  background: rgb(249 250 251);
+  border-radius: 4px;
+}
+
+textarea.form-input::-webkit-scrollbar-thumb {
+  background: rgb(209 213 219);
+  border-radius: 4px;
+  transition: background 0.2s, width 0.2s;
+}
+
+textarea.form-input::-webkit-scrollbar-thumb:hover {
+  background: rgb(156 163 175);
+  width: 12px;
+}
+
+/* Dark mode scrollbar */
+.dark textarea.form-input::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark textarea.form-input::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark textarea.form-input::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
 .form-input::placeholder {
   color: rgb(156 163 175);
 }
