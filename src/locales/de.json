@@ -2,11 +2,11 @@
   "nav": {
     "home": "Startseite",
     "about": "Über mich",
-    "education": "Bildung",
-    "skills": "Fähigkeiten",
-    "projects": "Projekte",
+    "stack": "Stack",
+    "work": "Arbeit",
     "contact": "Kontakt",
-    "resume": "Lebenslauf"
+    "resume": "Lebenslauf",
+    "faq": "FAQ"
   },
   "home": {
     "welcome": "Willkommen in meinem Portfolio",

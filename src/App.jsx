@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useState } from 'react'
 import Navbar from './components/Navbar'
 import AboutSection from './components/about/AboutSection'
+import StackSection from './components/about/StackSection'
+import WorkSection from './components/WorkSection'
 import Education from './components/Education'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import HeroSection from './components/HeroSection'
 import ManifestoSection from './components/ManifestoSection'
+import Footer from './components/Footer'
 import useSmoothScroll from './hooks/useSmoothScroll'
 import Preloader from './components/Preloader'
 
 function App() {
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(false)
   useSmoothScroll()
 
   return (
@@ -29,9 +32,19 @@ function App() {
           <AboutSection />
         </section>
 
-        <section id="education">
-          <Education />
+        {/* ── Stack / Culture section ── */}
+        <section id="stack">
+          <StackSection />
         </section>
+
+        {/* ── Work Experience + Projects + Skills ── */}
+        <section id="work">
+          <WorkSection />
+        </section>
+
+        {/* <section id="education">
+          <Education />
+        </section> */}
 
         <section id="faq">
           <FAQ />
@@ -40,6 +53,8 @@ function App() {
         <section id="contact">
           <Contact />
         </section>
+
+        <Footer />
       </main>
     </>
   )

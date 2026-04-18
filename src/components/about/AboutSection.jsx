@@ -28,8 +28,9 @@ const smoothVariants = {
     y: -60,
     scale: 0.98,
     transition: {
-      duration: 0.4,
-      ease: "easeInOut"
+      duration: 1.5,
+      ease: "easeInOut",
+      delay: 0.3
     }
   }
 };
@@ -60,7 +61,7 @@ const portraitVariants = {
     scale: 0.92,
     rotate: 3,
     transition: {
-      duration: 0.5,
+      duration: 1.0,
       ease: "easeInOut"
     }
   }
@@ -69,7 +70,7 @@ const portraitVariants = {
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    margin: "-20%",
+    margin: "-100px",
     amount: 0.3
   });
 
@@ -164,9 +165,9 @@ const AboutSection = () => {
         animate={{ opacity: 1, y: [0, 8, 0] }}
         transition={{ delay: 1.8, duration: 0.8, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
         onClick={() => {
-          const educationSection = document.getElementById('education');
-          if (educationSection) {
-            educationSection.scrollIntoView({ behavior: 'smooth' });
+          const stackSection = document.getElementById('stack');
+          if (stackSection) {
+            stackSection.scrollIntoView({ behavior: 'smooth' });
           }
         }}
         className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[9px] tracking-widest cursor-pointer ${isDark ? 'text-white/20 hover:text-white/40' : 'text-black/60 hover:text-black/80'} transition-colors`}

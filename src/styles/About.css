@@ -6,7 +6,7 @@
 .about-section {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 40px 35px;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
@@ -76,7 +76,7 @@
   display: grid;
   grid-template-columns: 2.6fr 1.3fr;
   gap: 2.6rem;
-  margin: 20vh auto 0;
+  margin: 8vh auto 0;
   padding: 0 35px;
   align-items: center;
 }

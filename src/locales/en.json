@@ -2,9 +2,8 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "education": "Education",
-    "skills": "Skills",
-    "projects": "Projects",
+    "stack": "Stack",
+    "work": "Work",
     "contact": "Contact",
     "resume": "Resume",
     "faq": "FAQ"

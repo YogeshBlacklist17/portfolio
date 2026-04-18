@@ -7,7 +7,7 @@ const Navbar = () => {
   const { t, i18n } = useTranslation()
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem('darkMode')
-    return saved ? JSON.parse(saved) : false
+    return saved ? JSON.parse(saved) : true
   })
   const [activeSection, setActiveSection] = useState('home')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -15,7 +15,7 @@ const Navbar = () => {
   const [currentLang, setCurrentLang] = useState(i18n.language)
 
   const sections = useMemo(
-    () => ['home', 'about', 'education', 'skills', 'projects', 'faq', 'contact'],
+    () => ['home', 'about', 'stack', 'work', 'faq', 'contact'],
     []
   )
 

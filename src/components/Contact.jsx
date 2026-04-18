@@ -390,7 +390,7 @@ const Contact = () => {
               ))}
             </div>
 
-            {!showPhone ? (
+            {/* {!showPhone ? (
               <motion.button
                 className="w-full py-3 px-4 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white font-medium transition-colors duration-200 hover:bg-green-50 dark:hover:bg-purple-900/20 hover:border-green-300 dark:hover:border-purple-700 hover:text-green-700 dark:hover:text-purple-400"
                 onClick={() => setShowPhone(true)}
@@ -411,7 +411,7 @@ const Contact = () => {
                   +91 98765 43210
                 </span>
               </motion.div>
-            )}
+            )} */}
           </GlowCard>
         </motion.div>
 
